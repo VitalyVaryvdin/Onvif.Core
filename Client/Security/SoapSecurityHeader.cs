@@ -71,10 +71,7 @@ namespace Onvif.Core.Client.Security {
 
 		byte [] GetNonce ()
 		{
-			byte [] nonce = new byte [0x10];
-			var generator = new RNGCryptoServiceProvider ();
-			generator.GetBytes (nonce);
-			return nonce;
+			return RandomNumberGenerator.GetBytes(0x10);
 		}
 	}
 }
