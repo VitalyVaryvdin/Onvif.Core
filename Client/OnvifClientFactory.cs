@@ -109,10 +109,16 @@ namespace Onvif.Core.Client
 
         public static async Task<TimeSpan> GetDeviceTimeShift(this DeviceClient device)
         {
-            var utc = (await device.GetSystemDateAndTimeAsync().ConfigureAwait(false)).UTCDateTime;
-            var dt = new System.DateTime(utc.Date.Year, utc.Date.Month, utc.Date.Day,
-                              utc.Time.Hour, utc.Time.Minute, utc.Time.Second);
-            return dt - System.DateTime.UtcNow;
+			try
+			{
+				var utc = (await device.GetSystemDateAndTimeAsync().ConfigureAwait(false)).UTCDateTime;
+				var dt = new System.DateTime(utc.Date.Year, utc.Date.Month, utc.Date.Day, utc.Time.Hour, utc.Time.Minute, utc.Time.Second);
+				return dt - System.DateTime.UtcNow;
+			}
+			catch (Exception e)
+			{
+				return new TimeSpan(0);
+			}
         }
     }
 }
