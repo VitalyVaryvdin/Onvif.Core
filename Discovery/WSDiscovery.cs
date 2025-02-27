@@ -1,8 +1,11 @@
 ﻿using Onvif.Core.Discovery.Common;
 using Onvif.Core.Discovery.Interfaces;
 using Onvif.Core.Discovery.Models;
+using Onvif.Core.Internals;
+
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
@@ -17,20 +20,37 @@ namespace Onvif.Core.Discovery
 {
     public class WSDiscovery : IWSDiscovery
     {
+        private static readonly Regex _regexModel = new("(?<=hardware/).*?(?= )", RegexOptions.Compiled);
+        private static readonly Regex _regexName = new("(?<=name/).*?(?= )", RegexOptions.Compiled);
+
+        /// <remarks>
+        /// This method uses 80 port.
+        /// </remarks>
         public Task<IEnumerable<DiscoveryDevice>> Discover(int timeout,
-            CancellationToken cancellationToken = default(CancellationToken))
+            CancellationToken cancellationToken = default)
         {
             return Discover(timeout, new UdpClientWrapper(), cancellationToken);
         }
 
+        public Task<IEnumerable<DiscoveryDevice>> Discover(int timeout, int port,
+           CancellationToken cancellationToken = default)
+        {
+            return Discover(timeout, new UdpClientWrapper(port), cancellationToken);
+        }
+
+        public Task<IEnumerable<DiscoveryDevice>> Discover(int timeout, string ipAddress, int port,
+            CancellationToken cancellationToken = default)
+        {
+            return Discover(timeout, new UdpClientWrapper(ipAddress, port), cancellationToken);
+        }
+
         public async Task<IEnumerable<DiscoveryDevice>> Discover(int Timeout, IUdpClient client,
-            CancellationToken cancellationToken = default(CancellationToken))
+            CancellationToken cancellationToken = default)
         {
             var devices = new List<DiscoveryDevice>();
-            var isRunning = false;
             var responses = new List<UdpReceiveResult>();
-
-            await SendProbe(client);
+            await SendProbe(client).ConfigureAwait(false);
+            bool isRunning;
             try
             {
                 isRunning = true;
@@ -41,7 +61,7 @@ namespace Onvif.Core.Discovery
                     {
                         break;
                     }
-                    var response = await client.ReceiveAsync().WithCancellation(cts.Token).WithCancellation(cancellationToken);
+                    var response = await client.ReceiveAsync().WithCancellation(cts.Token).WithCancellation(cancellationToken).ConfigureAwait(false);
                     responses.Add(response);
                 }
             }
@@ -52,6 +72,7 @@ namespace Onvif.Core.Discovery
             finally
             {
                 client.Close();
+                client.Dispose();
             }
             if (cancellationToken.IsCancellationRequested)
             {
@@ -65,7 +86,7 @@ namespace Onvif.Core.Discovery
         {
             var message = WSProbeMessageBuilder.NewProbeMessage();
             var multicastEndpoint = new IPEndPoint(IPAddress.Parse(Constants.WS_MULTICAST_ADDRESS), Constants.WS_MULTICAST_PORT);
-            await client.SendAsync(message, message.Length, multicastEndpoint);
+            await client.SendAsync(message, message.Length, multicastEndpoint).ConfigureAwait(false);
         }
 
         IEnumerable<DiscoveryDevice> ProcessResponses(IEnumerable<UdpReceiveResult> responses)
@@ -75,6 +96,8 @@ namespace Onvif.Core.Discovery
                 if (response.Buffer != null)
                 {
                     string strResponse = Encoding.UTF8.GetString(response.Buffer);
+                    if (strResponse == string.Empty)
+                        continue;
                     XmlProbeReponse xmlResponse = DeserializeResponse(strResponse);
                     foreach (var device in CreateDevices(xmlResponse, response.RemoteEndPoint))
                     {
@@ -86,28 +109,38 @@ namespace Onvif.Core.Discovery
 
         XmlProbeReponse DeserializeResponse(string xml)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(XmlProbeReponse));
-            XmlReaderSettings settings = new XmlReaderSettings();
-            using (StringReader textReader = new StringReader(xml))
-            {
-                using (XmlReader xmlReader = XmlReader.Create(textReader, settings))
-                {
-                    return (XmlProbeReponse)serializer.Deserialize(xmlReader);
-                }
-            }
+            XmlSerializer serializer = new(typeof(XmlProbeReponse));
+            XmlReaderSettings settings = new();
+            using StringReader textReader = new(xml);
+            using XmlReader xmlReader = XmlReader.Create(textReader, settings);
+            return (XmlProbeReponse)serializer.Deserialize(xmlReader);
         }
 
         IEnumerable<DiscoveryDevice> CreateDevices(XmlProbeReponse response, IPEndPoint remoteEndpoint)
         {
+            DiscoveryDevice discoveryDevice;
             foreach (var probeMatch in response.Body.ProbeMatches)
             {
-                var discoveryDevice = new DiscoveryDevice();
-                discoveryDevice.Address = remoteEndpoint.Address;
-                discoveryDevice.XAdresses = ConvertToList(probeMatch.XAddrs);
-                discoveryDevice.Types = ConvertToList(probeMatch.Types);
-                discoveryDevice.Model = ParseModelFromScopes(probeMatch.Scopes);
-                discoveryDevice.Name = ParseNameFromScopes(probeMatch.Scopes);
-                yield return discoveryDevice;
+                discoveryDevice = null;
+                try
+                {
+                    discoveryDevice = new DiscoveryDevice
+                    {
+                        Address = remoteEndpoint.Address,
+                        XAdresses = ConvertToList(probeMatch.XAddrs),
+                        Types = ConvertToList(probeMatch.Types),
+                        Model = ParseModelFromScopes(probeMatch.Scopes),
+                        Name = ParseNameFromScopes(probeMatch.Scopes)
+                    };
+                }
+                catch (Exception ex)
+                {
+                    Debug.Fail(ex.ToString());
+                }
+                if (discoveryDevice != null)
+                {
+                    yield return discoveryDevice;
+                }
             }
         }
 
@@ -122,12 +155,12 @@ namespace Onvif.Core.Discovery
 
         string ParseModelFromScopes(string scopes)
         {
-            return Regex.Match(scopes, "(?<=hardware/).*?(?= )").Value;
+            return _regexModel.Match(scopes).Value;
         }
 
         string ParseNameFromScopes(string scopes)
         {
-            return Regex.Match(scopes, "(?<=name/).*?(?= )").Value;
+            return _regexName.Match(scopes).Value;
         }
     }
 }

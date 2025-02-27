@@ -1,8 +1,11 @@
-﻿using Onvif.Core.Client.Common;
+﻿using Onvif.Core.Client.Camera.Requests;
+using Onvif.Core.Client.Common;
+
 using System;
 using System.Threading.Tasks;
+using System.Xml;
 
-namespace Onvif.Core.Client
+namespace Onvif.Core.Client.Camera
 {
     public static class CameraExtensions
     {
@@ -17,7 +20,7 @@ namespace Onvif.Core.Client
 
                 if (focus)// && camera.FocusMode != focusMode
                 {
-                    var image_settings = await imaging.GetImagingSettingsAsync(vsource_token);
+                    var image_settings = await imaging.GetImagingSettingsAsync(vsource_token).ConfigureAwait(false);
                     if (image_settings.Focus == null)
                     {
                         image_settings.Focus = new FocusConfiguration20
@@ -25,23 +28,34 @@ namespace Onvif.Core.Client
                             AutoFocusMode = focusMode
                         };
 
-                        await imaging.SetImagingSettingsAsync(vsource_token, image_settings, false);
+                        await imaging.SetImagingSettingsAsync(vsource_token, image_settings, false).ConfigureAwait(false);
                     }
                     else if (image_settings.Focus.AutoFocusMode != focusMode)
                     {
                         image_settings.Focus.AutoFocusMode = focusMode;
-                        await imaging.SetImagingSettingsAsync(vsource_token, image_settings, false);
+                        await imaging.SetImagingSettingsAsync(vsource_token, image_settings, false).ConfigureAwait(false);
                     }
                     camera.FocusMode = focusMode;
                 }
 
-                await imaging.MoveAsync(vsource_token, focusMove);
+                await imaging.MoveAsync(vsource_token, focusMove).ConfigureAwait(false);
                 return true;
             }
             return false;
         }
 
+
+        /// <remarks>
+        /// timeout is in millisecond.
+        /// <para>This method is retained for Compatibility.</para>
+        /// </remarks>
+        [Obsolete("Use MoveAsync(Camera, MoveType, PTZVector, PTZSpeed, TimeSpan) instead.")]
         public static async Task<bool> MoveAsync(this Camera camera, MoveType moveType, PTZVector vector, PTZSpeed speed, int timeout)
+        {
+            return await camera.MoveAsync(moveType, vector, speed, TimeSpan.FromMilliseconds(timeout)).ConfigureAwait(false);
+        }
+
+        public static async Task<bool> MoveAsync(this Camera camera, MoveType moveType, PTZVector vector, PTZSpeed speed, TimeSpan? timeout = null)
         {
             if (camera != null)
             {
@@ -50,13 +64,13 @@ namespace Onvif.Core.Client
                 switch (moveType)
                 {
                     case MoveType.Absolute:
-                        await ptz.AbsoluteMoveAsync(profile_token, vector, speed);
+                        await ptz.AbsoluteMoveAsync(profile_token, vector, speed).ConfigureAwait(false);
                         return true;
                     case MoveType.Relative:
-                        await ptz.RelativeMoveAsync(profile_token, vector, speed);
+                        await ptz.RelativeMoveAsync(profile_token, vector, speed).ConfigureAwait(false);
                         return true;
                     case MoveType.Continuous:
-                        await ptz.ContinuousMoveAsync(profile_token, speed, timeout.ToString());
+                        await ptz.ContinuousMoveAsync(profile_token, speed, timeout).ConfigureAwait(false);
                         return true;
                     default:
                         break;

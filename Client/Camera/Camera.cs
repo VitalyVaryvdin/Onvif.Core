@@ -1,62 +1,78 @@
-﻿using Onvif.Core.Client;
-using Onvif.Core.Client.Common;
+﻿using Onvif.Core.Client.Common;
 using Onvif.Core.Client.Imaging;
 using Onvif.Core.Client.Media;
 using Onvif.Core.Client.Ptz;
+
 using System;
 using System.Collections.Generic;
-using System.ServiceModel;
+using System.Threading;
 using System.Threading.Tasks;
 
-namespace Onvif.Core.Client
+namespace Onvif.Core.Client.Camera
 {
-    public class Camera
+    public class Camera(Account account)
     {
-        private static IDictionary<string, Camera> Cameras { get; set; } = new Dictionary<string, Camera>();
+        private static IDictionary<Account, Camera> Cameras { get; set; } = new Dictionary<Account, Camera>();
+
+        private static readonly object s_Locker = new();
+
         public static Camera Create(Account account, Action<Exception> exception)
         {
-            var key = $"{account.Host}:{account.UserName}:{account.Password}";
-            Camera camera;
+            return CreateAsync(account, exception).Result;
+        }
+
+        public static async Task<Camera> CreateAsync(Account account, Action<Exception> exception)
+        {
             bool usable;
-
-            if (!Cameras.ContainsKey(key))
+            if (!Cameras.TryGetValue(account, out Camera camera))
             {
-                camera = new Camera(account);
-                usable = camera.Testing(account, exception).Result;
-                if (usable)
+                Monitor.Enter(s_Locker);
+                try
                 {
-                    Cameras.Add(key, camera);
-                    Cameras[key].LastUse = System.DateTime.UtcNow;
-                    //clear...
+                    if (!Cameras.TryGetValue(account, out camera))
+                    {
+                        camera = new Camera(account);
+                        Cameras.Add(account, camera);
+                        camera.LastUse = System.DateTime.UtcNow;
+                    }
                 }
-                else
-                    return null;
+                finally
+                {
+                    Monitor.Exit(s_Locker);
+                }
             }
-
-            camera = Cameras[key]; ;
-            usable = camera.Testing(account, exception).Result;
-            if (usable)
-                return camera;
-            else
-                return null;
+            usable = await camera.Testing(exception).ConfigureAwait(false);
+            // todo Do we need update LastUse?
+            return usable ? camera : null;
         }
 
         public AutoFocusMode FocusMode { get; set; }
 
         public System.DateTime LastUse { get; set; }
 
-        private Account Account { get; }
-        public Camera(Account account)
-        {
-            Account = account;
-        }
+        private Account Account { get; } = account;
 
+        [Obsolete("Use Testing(Action<Exception>) instead.")]
         public async Task<bool> Testing(Account account, Action<Exception> exception)
         {
             try
             {
                 //var device = await OnvifClientFactory.CreateDeviceClientAsync(account.Host, account.UserName, account.Password);
-                var response = await Media.GetProfilesAsync();
+                var response = await Media.GetProfilesAsync().ConfigureAwait(false);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                exception?.Invoke(ex);
+                return false;
+            }
+        }
+
+        public async Task<bool> Testing(Action<Exception> exception = null)
+        {
+            try
+            {
+                var response = await Media.GetProfilesAsync().ConfigureAwait(false);
                 return true;
             }
             catch (Exception ex)
@@ -72,7 +88,7 @@ namespace Onvif.Core.Client
         {
             get
             {
-                _ptz = _ptz ?? OnvifClientFactory.CreatePTZClientAsync(Account.Host, Account.UserName, Account.Password).Result;
+                _ptz ??= OnvifClientFactory.CreatePTZClientAsync(Account.Host, Account.UserName, Account.Password).Result;
                 return _ptz;
             }
         }
@@ -83,7 +99,7 @@ namespace Onvif.Core.Client
         {
             get
             {
-                _media = _media ?? OnvifClientFactory.CreateMediaClientAsync(Account.Host, Account.UserName, Account.Password).Result;
+                _media ??= OnvifClientFactory.CreateMediaClientAsync(Account.Host, Account.UserName, Account.Password).Result;
                 return _media;
             }
         }
@@ -94,7 +110,7 @@ namespace Onvif.Core.Client
         {
             get
             {
-                _imaging = _imaging ?? OnvifClientFactory.CreateImagingClientAsync(Account.Host, Account.UserName, Account.Password).Result;
+                _imaging ??= OnvifClientFactory.CreateImagingClientAsync(Account.Host, Account.UserName, Account.Password).Result;
                 return _imaging;
             }
         }

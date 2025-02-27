@@ -1,25 +1,39 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFrameworks>net7.0</TargetFrameworks>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-		<Authors>Jazea.org</Authors>
-		<Copyright>©2020 Jazea.org</Copyright>
-		<Description>A lightweight ONVIF Discovery and Client library.</Description>
-		<PackageIconUrl>https://avatars1.githubusercontent.com/u/12891248</PackageIconUrl>
-		<Company>Jazea.org</Company>
-		<Version>2.2.2</Version>
-		<AssemblyVersion>2.2.2.0</AssemblyVersion>
-		<PackageProjectUrl>https://github.com/Jazea/Onvif.Core</PackageProjectUrl>
-		<PackageTags>onvif camera ptz</PackageTags>
-	</PropertyGroup>
+  <PropertyGroup>
+    <TargetFrameworks>net7.0</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Authors>Jazea.org</Authors>
+    <Copyright>©2020 Jazea.org</Copyright>
+    <Description>A lightweight ONVIF Discovery and Client library.</Description>
+    <PackageIconUrl>https://avatars1.githubusercontent.com/u/12891248</PackageIconUrl>
+    <Company>Jazea.org</Company>
+    <Version>2.2.2</Version>
+    <AssemblyVersion>2.2.2.0</AssemblyVersion>
+    <PackageProjectUrl>https://github.com/Jazea/Onvif.Core</PackageProjectUrl>
+    <PackageTags>onvif camera ptz</PackageTags>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <PackageIcon>icon.png</PackageIcon>
+    <LangVersion>12.0</LangVersion>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="System.ServiceModel.Duplex" Version="4.9.0" />
-		<PackageReference Include="System.ServiceModel.Http" Version="4.9.0" />
-		<PackageReference Include="System.ServiceModel.NetTcp" Version="4.9.0" />
-		<PackageReference Include="System.ServiceModel.Security" Version="4.9.0" />
-	</ItemGroup>
+  <ItemGroup>
+    <None Include="res\icon.png" Pack="true" PackagePath="" />
+    <None Include="README.md" Pack="true" PackagePath=""/>
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.ObjectPool" Version="8.0.5" />
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="7.0.4" />
+    <PackageReference Include="System.Buffers" Version="4.5.1" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+    <PackageReference Include="System.Security.AccessControl" Version="6.0.1" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="8.0.0" />
+    <PackageReference Include="System.Security.Cryptography.Xml" Version="8.0.1" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.10.3" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.10.3" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.10.3" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.10.3" />
+  </ItemGroup>
 
 </Project>

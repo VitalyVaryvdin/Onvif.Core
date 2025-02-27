@@ -1,4 +1,4 @@
-﻿namespace Onvif.Core.Client
+﻿namespace Onvif.Core.Client.Camera.Requests
 {
     public class Request
     {
