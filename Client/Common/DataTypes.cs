@@ -23306,4 +23306,3387 @@ namespace Onvif.Core.Client.Common
             }
         }
     }
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver20/media/wsdl")]
+public partial class AudioClip
+{
+    
+    private bool enabledField;
+    
+    private string nameField;
+    
+    private string[] audioOutputTokenField;
+    
+    private string typeField;
+    
+    private int repeatCyclesField;
+    
+    private int repeatIntervalField;
+    
+    private bool repeatIntervalFieldSpecified;
+    
+    private int audioOutputLevelField;
+    
+    private bool audioOutputLevelFieldSpecified;
+    
+    private string scheduleTokenField;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public bool Enabled
+    {
+        get
+        {
+            return this.enabledField;
+        }
+        set
+        {
+            this.enabledField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+    public string Name
+    {
+        get
+        {
+            return this.nameField;
+        }
+        set
+        {
+            this.nameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("AudioOutputToken", Order=2)]
+    public string[] AudioOutputToken
+    {
+        get
+        {
+            return this.audioOutputTokenField;
+        }
+        set
+        {
+            this.audioOutputTokenField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+    public string Type
+    {
+        get
+        {
+            return this.typeField;
+        }
+        set
+        {
+            this.typeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+    public int RepeatCycles
+    {
+        get
+        {
+            return this.repeatCyclesField;
+        }
+        set
+        {
+            this.repeatCyclesField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+    public int RepeatInterval
+    {
+        get
+        {
+            return this.repeatIntervalField;
+        }
+        set
+        {
+            this.repeatIntervalField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool RepeatIntervalSpecified
+    {
+        get
+        {
+            return this.repeatIntervalFieldSpecified;
+        }
+        set
+        {
+            this.repeatIntervalFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+    public int AudioOutputLevel
+    {
+        get
+        {
+            return this.audioOutputLevelField;
+        }
+        set
+        {
+            this.audioOutputLevelField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool AudioOutputLevelSpecified
+    {
+        get
+        {
+            return this.audioOutputLevelFieldSpecified;
+        }
+        set
+        {
+            this.audioOutputLevelFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+    public string ScheduleToken
+    {
+        get
+        {
+            return this.scheduleTokenField;
+        }
+        set
+        {
+            this.scheduleTokenField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=8)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver20/media/wsdl")]
+public partial class AudioClipCapabilities
+{
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    private int maxAudioClipLimitField;
+    
+    private bool maxAudioClipLimitFieldSpecified;
+    
+    private float maxAudioClipSizeField;
+    
+    private bool maxAudioClipSizeFieldSpecified;
+    
+    private string[] supportedAudioClipFormatField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=0)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public int MaxAudioClipLimit
+    {
+        get
+        {
+            return this.maxAudioClipLimitField;
+        }
+        set
+        {
+            this.maxAudioClipLimitField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool MaxAudioClipLimitSpecified
+    {
+        get
+        {
+            return this.maxAudioClipLimitFieldSpecified;
+        }
+        set
+        {
+            this.maxAudioClipLimitFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public float MaxAudioClipSize
+    {
+        get
+        {
+            return this.maxAudioClipSizeField;
+        }
+        set
+        {
+            this.maxAudioClipSizeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool MaxAudioClipSizeSpecified
+    {
+        get
+        {
+            return this.maxAudioClipSizeFieldSpecified;
+        }
+        set
+        {
+            this.maxAudioClipSizeFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string[] SupportedAudioClipFormat
+    {
+        get
+        {
+            return this.supportedAudioClipFormatField;
+        }
+        set
+        {
+            this.supportedAudioClipFormatField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver10/schema")]
+public partial class AudioDecoder2Options
+{
+    
+    private string encodingField;
+    
+    private int[] bitrateListField;
+    
+    private int[] sampleRateListField;
+    
+    private int rTPPayloadTypeField;
+    
+    private bool rTPPayloadTypeFieldSpecified;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public string Encoding
+    {
+        get
+        {
+            return this.encodingField;
+        }
+        set
+        {
+            this.encodingField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayAttribute(Order=1)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Items", IsNullable=false)]
+    public int[] BitrateList
+    {
+        get
+        {
+            return this.bitrateListField;
+        }
+        set
+        {
+            this.bitrateListField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Items", IsNullable=false)]
+    public int[] SampleRateList
+    {
+        get
+        {
+            return this.sampleRateListField;
+        }
+        set
+        {
+            this.sampleRateListField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+    public int RTPPayloadType
+    {
+        get
+        {
+            return this.rTPPayloadTypeField;
+        }
+        set
+        {
+            this.rTPPayloadTypeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool RTPPayloadTypeSpecified
+    {
+        get
+        {
+            return this.rTPPayloadTypeFieldSpecified;
+        }
+        set
+        {
+            this.rTPPayloadTypeFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=4)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver10/schema")]
+public partial class AudioEncoder2ConfigurationOptions
+{
+    
+    private string encodingField;
+    
+    private int[] bitrateListField;
+    
+    private int[] sampleRateListField;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public string Encoding
+    {
+        get
+        {
+            return this.encodingField;
+        }
+        set
+        {
+            this.encodingField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayAttribute(Order=1)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Items", IsNullable=false)]
+    public int[] BitrateList
+    {
+        get
+        {
+            return this.bitrateListField;
+        }
+        set
+        {
+            this.bitrateListField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Items", IsNullable=false)]
+    public int[] SampleRateList
+    {
+        get
+        {
+            return this.sampleRateListField;
+        }
+        set
+        {
+            this.sampleRateListField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=3)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver20/media/wsdl")]
+public partial class Capabilities2
+{
+    
+    private ProfileCapabilities profileCapabilitiesField;
+    
+    private StreamingCapabilities streamingCapabilitiesField;
+    
+    private MediaSigningCapabilities mediaSigningCapabilitiesField;
+    
+    private AudioClipCapabilities audioClipCapabilitiesField;
+    
+    private MulticastAudioDecoderCapabilities multicastAudioDecoderCapabilitiesField;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    private bool snapshotUriField;
+    
+    private bool snapshotUriFieldSpecified;
+    
+    private bool rotationField;
+    
+    private bool rotationFieldSpecified;
+    
+    private bool videoSourceModeField;
+    
+    private bool videoSourceModeFieldSpecified;
+    
+    private bool oSDField;
+    
+    private bool oSDFieldSpecified;
+    
+    private bool temporaryOSDTextField;
+    
+    private bool temporaryOSDTextFieldSpecified;
+    
+    private bool maskField;
+    
+    private bool maskFieldSpecified;
+    
+    private bool sourceMaskField;
+    
+    private bool sourceMaskFieldSpecified;
+    
+    private int webRTCField;
+    
+    private bool webRTCFieldSpecified;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public ProfileCapabilities ProfileCapabilities
+    {
+        get
+        {
+            return this.profileCapabilitiesField;
+        }
+        set
+        {
+            this.profileCapabilitiesField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+    public StreamingCapabilities StreamingCapabilities
+    {
+        get
+        {
+            return this.streamingCapabilitiesField;
+        }
+        set
+        {
+            this.streamingCapabilitiesField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+    public MediaSigningCapabilities MediaSigningCapabilities
+    {
+        get
+        {
+            return this.mediaSigningCapabilitiesField;
+        }
+        set
+        {
+            this.mediaSigningCapabilitiesField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+    public AudioClipCapabilities AudioClipCapabilities
+    {
+        get
+        {
+            return this.audioClipCapabilitiesField;
+        }
+        set
+        {
+            this.audioClipCapabilitiesField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+    public MulticastAudioDecoderCapabilities MulticastAudioDecoderCapabilities
+    {
+        get
+        {
+            return this.multicastAudioDecoderCapabilitiesField;
+        }
+        set
+        {
+            this.multicastAudioDecoderCapabilitiesField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=5)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool SnapshotUri
+    {
+        get
+        {
+            return this.snapshotUriField;
+        }
+        set
+        {
+            this.snapshotUriField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool SnapshotUriSpecified
+    {
+        get
+        {
+            return this.snapshotUriFieldSpecified;
+        }
+        set
+        {
+            this.snapshotUriFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool Rotation
+    {
+        get
+        {
+            return this.rotationField;
+        }
+        set
+        {
+            this.rotationField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool RotationSpecified
+    {
+        get
+        {
+            return this.rotationFieldSpecified;
+        }
+        set
+        {
+            this.rotationFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool VideoSourceMode
+    {
+        get
+        {
+            return this.videoSourceModeField;
+        }
+        set
+        {
+            this.videoSourceModeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool VideoSourceModeSpecified
+    {
+        get
+        {
+            return this.videoSourceModeFieldSpecified;
+        }
+        set
+        {
+            this.videoSourceModeFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool OSD
+    {
+        get
+        {
+            return this.oSDField;
+        }
+        set
+        {
+            this.oSDField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool OSDSpecified
+    {
+        get
+        {
+            return this.oSDFieldSpecified;
+        }
+        set
+        {
+            this.oSDFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool TemporaryOSDText
+    {
+        get
+        {
+            return this.temporaryOSDTextField;
+        }
+        set
+        {
+            this.temporaryOSDTextField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool TemporaryOSDTextSpecified
+    {
+        get
+        {
+            return this.temporaryOSDTextFieldSpecified;
+        }
+        set
+        {
+            this.temporaryOSDTextFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool Mask
+    {
+        get
+        {
+            return this.maskField;
+        }
+        set
+        {
+            this.maskField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool MaskSpecified
+    {
+        get
+        {
+            return this.maskFieldSpecified;
+        }
+        set
+        {
+            this.maskFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool SourceMask
+    {
+        get
+        {
+            return this.sourceMaskField;
+        }
+        set
+        {
+            this.sourceMaskField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool SourceMaskSpecified
+    {
+        get
+        {
+            return this.sourceMaskFieldSpecified;
+        }
+        set
+        {
+            this.sourceMaskFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public int WebRTC
+    {
+        get
+        {
+            return this.webRTCField;
+        }
+        set
+        {
+            this.webRTCField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool WebRTCSpecified
+    {
+        get
+        {
+            return this.webRTCFieldSpecified;
+        }
+        set
+        {
+            this.webRTCFieldSpecified = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver20/media/wsdl")]
+public partial class ConfigurationRef
+{
+    
+    private string typeField;
+    
+    private string tokenField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public string Type
+    {
+        get
+        {
+            return this.typeField;
+        }
+        set
+        {
+            this.typeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+    public string Token
+    {
+        get
+        {
+            return this.tokenField;
+        }
+        set
+        {
+            this.tokenField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver20/media/wsdl")]
+public partial class ConfigurationSet
+{
+    
+    private VideoSourceConfiguration videoSourceField;
+    
+    private AudioSourceConfiguration audioSourceField;
+    
+    private VideoEncoder2Configuration videoEncoderField;
+    
+    private AudioEncoder2Configuration audioEncoderField;
+    
+    private VideoAnalyticsConfiguration analyticsField;
+    
+    private PTZConfiguration pTZField;
+    
+    private MetadataConfiguration metadataField;
+    
+    private AudioOutputConfiguration audioOutputField;
+    
+    private AudioDecoderConfiguration audioDecoderField;
+    
+    private ReceiverConfiguration1 receiverField;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public VideoSourceConfiguration VideoSource
+    {
+        get
+        {
+            return this.videoSourceField;
+        }
+        set
+        {
+            this.videoSourceField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+    public AudioSourceConfiguration AudioSource
+    {
+        get
+        {
+            return this.audioSourceField;
+        }
+        set
+        {
+            this.audioSourceField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+    public VideoEncoder2Configuration VideoEncoder
+    {
+        get
+        {
+            return this.videoEncoderField;
+        }
+        set
+        {
+            this.videoEncoderField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+    public AudioEncoder2Configuration AudioEncoder
+    {
+        get
+        {
+            return this.audioEncoderField;
+        }
+        set
+        {
+            this.audioEncoderField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+    public VideoAnalyticsConfiguration Analytics
+    {
+        get
+        {
+            return this.analyticsField;
+        }
+        set
+        {
+            this.analyticsField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+    public PTZConfiguration PTZ
+    {
+        get
+        {
+            return this.pTZField;
+        }
+        set
+        {
+            this.pTZField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+    public MetadataConfiguration Metadata
+    {
+        get
+        {
+            return this.metadataField;
+        }
+        set
+        {
+            this.metadataField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+    public AudioOutputConfiguration AudioOutput
+    {
+        get
+        {
+            return this.audioOutputField;
+        }
+        set
+        {
+            this.audioOutputField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+    public AudioDecoderConfiguration AudioDecoder
+    {
+        get
+        {
+            return this.audioDecoderField;
+        }
+        set
+        {
+            this.audioDecoderField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+    public ReceiverConfiguration1 Receiver
+    {
+        get
+        {
+            return this.receiverField;
+        }
+        set
+        {
+            this.receiverField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=10)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver20/media/wsdl")]
+public partial class EncoderInstance
+{
+    
+    private string encodingField;
+    
+    private int numberField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public string Encoding
+    {
+        get
+        {
+            return this.encodingField;
+        }
+        set
+        {
+            this.encodingField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+    public int Number
+    {
+        get
+        {
+            return this.numberField;
+        }
+        set
+        {
+            this.numberField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver20/media/wsdl")]
+public partial class EncoderInstanceInfo
+{
+    
+    private EncoderInstance[] codecField;
+    
+    private int totalField;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Codec", Order=0)]
+    public EncoderInstance[] Codec
+    {
+        get
+        {
+            return this.codecField;
+        }
+        set
+        {
+            this.codecField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+    public int Total
+    {
+        get
+        {
+            return this.totalField;
+        }
+        set
+        {
+            this.totalField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=2)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver10/schema")]
+public partial class EQPreset
+{
+    
+    private string tokenField;
+    
+    private string nameField;
+    
+    private bool isDefaultField;
+    
+    private string scheduleTokenField;
+    
+    private bool isFrequencyDecibelEditableField;
+    
+    private FrequencyDecibelPair[] frequencyDecibelPairField;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public string Token
+    {
+        get
+        {
+            return this.tokenField;
+        }
+        set
+        {
+            this.tokenField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+    public string Name
+    {
+        get
+        {
+            return this.nameField;
+        }
+        set
+        {
+            this.nameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+    public bool isDefault
+    {
+        get
+        {
+            return this.isDefaultField;
+        }
+        set
+        {
+            this.isDefaultField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+    public string ScheduleToken
+    {
+        get
+        {
+            return this.scheduleTokenField;
+        }
+        set
+        {
+            this.scheduleTokenField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+    public bool isFrequencyDecibelEditable
+    {
+        get
+        {
+            return this.isFrequencyDecibelEditableField;
+        }
+        set
+        {
+            this.isFrequencyDecibelEditableField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("FrequencyDecibelPair", Order=5)]
+    public FrequencyDecibelPair[] FrequencyDecibelPair
+    {
+        get
+        {
+            return this.frequencyDecibelPairField;
+        }
+        set
+        {
+            this.frequencyDecibelPairField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=6)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver10/schema")]
+public partial class FrequencyDecibelPair
+{
+    
+    private int centerFrequencyField;
+    
+    private float decibelField;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public int CenterFrequency
+    {
+        get
+        {
+            return this.centerFrequencyField;
+        }
+        set
+        {
+            this.centerFrequencyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+    public float Decibel
+    {
+        get
+        {
+            return this.decibelField;
+        }
+        set
+        {
+            this.decibelField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=2)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver20/media/wsdl")]
+public partial class GetAudioClipsResponseItem
+{
+    
+    private string tokenField;
+    
+    private AudioClip configurationField;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public string Token
+    {
+        get
+        {
+            return this.tokenField;
+        }
+        set
+        {
+            this.tokenField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+    public AudioClip Configuration
+    {
+        get
+        {
+            return this.configurationField;
+        }
+        set
+        {
+            this.configurationField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=2)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver20/media/wsdl")]
+public partial class Mask
+{
+    
+    private string configurationTokenField;
+    
+    private Vector[] polygonField;
+    
+    private string typeField;
+    
+    private Color colorField;
+    
+    private bool enabledField;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    private string tokenField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public string ConfigurationToken
+    {
+        get
+        {
+            return this.configurationTokenField;
+        }
+        set
+        {
+            this.configurationTokenField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayAttribute(Order=1)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Point", Namespace="http://www.onvif.org/ver10/schema", IsNullable=false)]
+    public Vector[] Polygon
+    {
+        get
+        {
+            return this.polygonField;
+        }
+        set
+        {
+            this.polygonField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+    public string Type
+    {
+        get
+        {
+            return this.typeField;
+        }
+        set
+        {
+            this.typeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+    public Color Color
+    {
+        get
+        {
+            return this.colorField;
+        }
+        set
+        {
+            this.colorField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+    public bool Enabled
+    {
+        get
+        {
+            return this.enabledField;
+        }
+        set
+        {
+            this.enabledField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=5)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string token
+    {
+        get
+        {
+            return this.tokenField;
+        }
+        set
+        {
+            this.tokenField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver20/media/wsdl")]
+public partial class MaskOptions
+{
+    
+    private int maxMasksField;
+    
+    private int maxPointsField;
+    
+    private string[] typesField;
+    
+    private ColorOptions colorField;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    private bool rectangleOnlyField;
+    
+    private bool rectangleOnlyFieldSpecified;
+    
+    private bool singleColorOnlyField;
+    
+    private bool singleColorOnlyFieldSpecified;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public int MaxMasks
+    {
+        get
+        {
+            return this.maxMasksField;
+        }
+        set
+        {
+            this.maxMasksField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+    public int MaxPoints
+    {
+        get
+        {
+            return this.maxPointsField;
+        }
+        set
+        {
+            this.maxPointsField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Types", Order=2)]
+    public string[] Types
+    {
+        get
+        {
+            return this.typesField;
+        }
+        set
+        {
+            this.typesField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+    public ColorOptions Color
+    {
+        get
+        {
+            return this.colorField;
+        }
+        set
+        {
+            this.colorField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=4)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool RectangleOnly
+    {
+        get
+        {
+            return this.rectangleOnlyField;
+        }
+        set
+        {
+            this.rectangleOnlyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool RectangleOnlySpecified
+    {
+        get
+        {
+            return this.rectangleOnlyFieldSpecified;
+        }
+        set
+        {
+            this.rectangleOnlyFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool SingleColorOnly
+    {
+        get
+        {
+            return this.singleColorOnlyField;
+        }
+        set
+        {
+            this.singleColorOnlyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool SingleColorOnlySpecified
+    {
+        get
+        {
+            return this.singleColorOnlyFieldSpecified;
+        }
+        set
+        {
+            this.singleColorOnlyFieldSpecified = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver20/media/wsdl")]
+public partial class MediaProfile
+{
+    
+    private string nameField;
+    
+    private ConfigurationSet configurationsField;
+    
+    private string tokenField;
+    
+    private bool fixedField;
+    
+    private bool fixedFieldSpecified;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public string Name
+    {
+        get
+        {
+            return this.nameField;
+        }
+        set
+        {
+            this.nameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+    public ConfigurationSet Configurations
+    {
+        get
+        {
+            return this.configurationsField;
+        }
+        set
+        {
+            this.configurationsField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string token
+    {
+        get
+        {
+            return this.tokenField;
+        }
+        set
+        {
+            this.tokenField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool @fixed
+    {
+        get
+        {
+            return this.fixedField;
+        }
+        set
+        {
+            this.fixedField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool fixedSpecified
+    {
+        get
+        {
+            return this.fixedFieldSpecified;
+        }
+        set
+        {
+            this.fixedFieldSpecified = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver20/media/wsdl")]
+public partial class MediaSigningCapabilities
+{
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    private bool mediaSigningSupportedField;
+    
+    private bool mediaSigningSupportedFieldSpecified;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=0)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool MediaSigningSupported
+    {
+        get
+        {
+            return this.mediaSigningSupportedField;
+        }
+        set
+        {
+            this.mediaSigningSupportedField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool MediaSigningSupportedSpecified
+    {
+        get
+        {
+            return this.mediaSigningSupportedFieldSpecified;
+        }
+        set
+        {
+            this.mediaSigningSupportedFieldSpecified = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver20/media/wsdl")]
+public partial class MulticastAudioDecoderCapabilities
+{
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    private bool multicastAudioDecoderField;
+    
+    private bool multicastAudioDecoderFieldSpecified;
+    
+    private bool sRTPField;
+    
+    private bool sRTPFieldSpecified;
+    
+    private bool iPv6Field;
+    
+    private bool iPv6FieldSpecified;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=0)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool MulticastAudioDecoder
+    {
+        get
+        {
+            return this.multicastAudioDecoderField;
+        }
+        set
+        {
+            this.multicastAudioDecoderField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool MulticastAudioDecoderSpecified
+    {
+        get
+        {
+            return this.multicastAudioDecoderFieldSpecified;
+        }
+        set
+        {
+            this.multicastAudioDecoderFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool SRTP
+    {
+        get
+        {
+            return this.sRTPField;
+        }
+        set
+        {
+            this.sRTPField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool SRTPSpecified
+    {
+        get
+        {
+            return this.sRTPFieldSpecified;
+        }
+        set
+        {
+            this.sRTPFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool IPv6
+    {
+        get
+        {
+            return this.iPv6Field;
+        }
+        set
+        {
+            this.iPv6Field = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool IPv6Specified
+    {
+        get
+        {
+            return this.iPv6FieldSpecified;
+        }
+        set
+        {
+            this.iPv6FieldSpecified = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver10/schema")]
+public partial class MulticastAudioDecoderConfiguration : ConfigurationEntity
+{
+    
+    private bool enableField;
+    
+    private string[] audioOutputTokenField;
+    
+    private string encodingField;
+    
+    private int bitrateField;
+    
+    private int samplingRateField;
+    
+    private MulticastReceiverConfiguration multicastField;
+    
+    private int rTPPayloadTypeField;
+    
+    private int priorityField;
+    
+    private string mediaFormatParametersField;
+    
+    private SRTPPreShared sRTPPreSharedParametersField;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public bool Enable
+    {
+        get
+        {
+            return this.enableField;
+        }
+        set
+        {
+            this.enableField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("AudioOutputToken", Order=1)]
+    public string[] AudioOutputToken
+    {
+        get
+        {
+            return this.audioOutputTokenField;
+        }
+        set
+        {
+            this.audioOutputTokenField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+    public string Encoding
+    {
+        get
+        {
+            return this.encodingField;
+        }
+        set
+        {
+            this.encodingField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+    public int Bitrate
+    {
+        get
+        {
+            return this.bitrateField;
+        }
+        set
+        {
+            this.bitrateField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+    public int SamplingRate
+    {
+        get
+        {
+            return this.samplingRateField;
+        }
+        set
+        {
+            this.samplingRateField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+    public MulticastReceiverConfiguration Multicast
+    {
+        get
+        {
+            return this.multicastField;
+        }
+        set
+        {
+            this.multicastField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+    public int RTPPayloadType
+    {
+        get
+        {
+            return this.rTPPayloadTypeField;
+        }
+        set
+        {
+            this.rTPPayloadTypeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+    public int Priority
+    {
+        get
+        {
+            return this.priorityField;
+        }
+        set
+        {
+            this.priorityField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+    public string MediaFormatParameters
+    {
+        get
+        {
+            return this.mediaFormatParametersField;
+        }
+        set
+        {
+            this.mediaFormatParametersField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+    public SRTPPreShared SRTPPreSharedParameters
+    {
+        get
+        {
+            return this.sRTPPreSharedParametersField;
+        }
+        set
+        {
+            this.sRTPPreSharedParametersField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=10)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver10/schema")]
+public partial class MulticastAudioDecoderConfigurationOptions
+{
+    
+    private AudioDecoder2Options encodingOptionsField;
+    
+    private IntRange priorityRangeField;
+    
+    private string secureStreamingProtocolAlgorithmsField;
+    
+    private string audioOutputTokensField;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public AudioDecoder2Options EncodingOptions
+    {
+        get
+        {
+            return this.encodingOptionsField;
+        }
+        set
+        {
+            this.encodingOptionsField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+    public IntRange PriorityRange
+    {
+        get
+        {
+            return this.priorityRangeField;
+        }
+        set
+        {
+            this.priorityRangeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+    public string SecureStreamingProtocolAlgorithms
+    {
+        get
+        {
+            return this.secureStreamingProtocolAlgorithmsField;
+        }
+        set
+        {
+            this.secureStreamingProtocolAlgorithmsField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+    public string AudioOutputTokens
+    {
+        get
+        {
+            return this.audioOutputTokensField;
+        }
+        set
+        {
+            this.audioOutputTokensField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=4)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver10/schema")]
+public partial class MulticastReceiverConfiguration
+{
+    
+    private IPAddress addressField;
+    
+    private int portField;
+    
+    private int tTLField;
+    
+    private string[] interfaceTokenField;
+    
+    private IPAddress sourceSpecificMulticastField;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public IPAddress Address
+    {
+        get
+        {
+            return this.addressField;
+        }
+        set
+        {
+            this.addressField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+    public int Port
+    {
+        get
+        {
+            return this.portField;
+        }
+        set
+        {
+            this.portField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+    public int TTL
+    {
+        get
+        {
+            return this.tTLField;
+        }
+        set
+        {
+            this.tTLField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("InterfaceToken", Order=3)]
+    public string[] InterfaceToken
+    {
+        get
+        {
+            return this.interfaceTokenField;
+        }
+        set
+        {
+            this.interfaceTokenField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+    public IPAddress SourceSpecificMulticast
+    {
+        get
+        {
+            return this.sourceSpecificMulticastField;
+        }
+        set
+        {
+            this.sourceSpecificMulticastField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=5)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver20/media/wsdl")]
+public partial class PlayingAudioClips
+{
+    
+    private string tokenField;
+    
+    private string nameField;
+    
+    private string[] audioOutputTokenField;
+    
+    private int audioOutputLevelField;
+    
+    private int repeatsLeftField;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public string Token
+    {
+        get
+        {
+            return this.tokenField;
+        }
+        set
+        {
+            this.tokenField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+    public string Name
+    {
+        get
+        {
+            return this.nameField;
+        }
+        set
+        {
+            this.nameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("AudioOutputToken", Order=2)]
+    public string[] AudioOutputToken
+    {
+        get
+        {
+            return this.audioOutputTokenField;
+        }
+        set
+        {
+            this.audioOutputTokenField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+    public int AudioOutputLevel
+    {
+        get
+        {
+            return this.audioOutputLevelField;
+        }
+        set
+        {
+            this.audioOutputLevelField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+    public int RepeatsLeft
+    {
+        get
+        {
+            return this.repeatsLeftField;
+        }
+        set
+        {
+            this.repeatsLeftField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=5)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(ReceiverConfiguration1))]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver10/schema")]
+public partial class ReceiverConfiguration
+{
+    
+    private ReceiverMode modeField;
+    
+    private string mediaUriField;
+    
+    private StreamSetup streamSetupField;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public ReceiverMode Mode
+    {
+        get
+        {
+            return this.modeField;
+        }
+        set
+        {
+            this.modeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(DataType="anyURI", Order=1)]
+    public string MediaUri
+    {
+        get
+        {
+            return this.mediaUriField;
+        }
+        set
+        {
+            this.mediaUriField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+    public StreamSetup StreamSetup
+    {
+        get
+        {
+            return this.streamSetupField;
+        }
+        set
+        {
+            this.streamSetupField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=3)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(TypeName="ReceiverConfiguration", Namespace="http://www.onvif.org/ver20/media/wsdl")]
+public partial class ReceiverConfiguration1 : ReceiverConfiguration
+{
+    
+    private string tokenField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string token
+    {
+        get
+        {
+            return this.tokenField;
+        }
+        set
+        {
+            this.tokenField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver10/schema")]
+public partial class SRTPPreShared
+{
+    
+    private string sRTPPSKField;
+    
+    private string secureStreamingProtocolAlgorithmField;
+    
+    private int rOCExtMapIDField;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public string SRTPPSK
+    {
+        get
+        {
+            return this.sRTPPSKField;
+        }
+        set
+        {
+            this.sRTPPSKField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+    public string SecureStreamingProtocolAlgorithm
+    {
+        get
+        {
+            return this.secureStreamingProtocolAlgorithmField;
+        }
+        set
+        {
+            this.secureStreamingProtocolAlgorithmField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+    public int ROCExtMapID
+    {
+        get
+        {
+            return this.rOCExtMapIDField;
+        }
+        set
+        {
+            this.rOCExtMapIDField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=3)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver20/media/wsdl")]
+public partial class StreamingCapabilities
+{
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    private bool rTSPStreamingField;
+    
+    private bool rTSPStreamingFieldSpecified;
+    
+    private bool rTPMulticastField;
+    
+    private bool rTPMulticastFieldSpecified;
+    
+    private bool rTP_RTSP_TCPField;
+    
+    private bool rTP_RTSP_TCPFieldSpecified;
+    
+    private bool nonAggregateControlField;
+    
+    private bool nonAggregateControlFieldSpecified;
+    
+    private string rTSPWebSocketUriField;
+    
+    private bool autoStartMulticastField;
+    
+    private bool autoStartMulticastFieldSpecified;
+    
+    private bool secureRTSPStreamingField;
+    
+    private bool secureRTSPStreamingFieldSpecified;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=0)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool RTSPStreaming
+    {
+        get
+        {
+            return this.rTSPStreamingField;
+        }
+        set
+        {
+            this.rTSPStreamingField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool RTSPStreamingSpecified
+    {
+        get
+        {
+            return this.rTSPStreamingFieldSpecified;
+        }
+        set
+        {
+            this.rTSPStreamingFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool RTPMulticast
+    {
+        get
+        {
+            return this.rTPMulticastField;
+        }
+        set
+        {
+            this.rTPMulticastField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool RTPMulticastSpecified
+    {
+        get
+        {
+            return this.rTPMulticastFieldSpecified;
+        }
+        set
+        {
+            this.rTPMulticastFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool RTP_RTSP_TCP
+    {
+        get
+        {
+            return this.rTP_RTSP_TCPField;
+        }
+        set
+        {
+            this.rTP_RTSP_TCPField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool RTP_RTSP_TCPSpecified
+    {
+        get
+        {
+            return this.rTP_RTSP_TCPFieldSpecified;
+        }
+        set
+        {
+            this.rTP_RTSP_TCPFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool NonAggregateControl
+    {
+        get
+        {
+            return this.nonAggregateControlField;
+        }
+        set
+        {
+            this.nonAggregateControlField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool NonAggregateControlSpecified
+    {
+        get
+        {
+            return this.nonAggregateControlFieldSpecified;
+        }
+        set
+        {
+            this.nonAggregateControlFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute(DataType="anyURI")]
+    public string RTSPWebSocketUri
+    {
+        get
+        {
+            return this.rTSPWebSocketUriField;
+        }
+        set
+        {
+            this.rTSPWebSocketUriField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool AutoStartMulticast
+    {
+        get
+        {
+            return this.autoStartMulticastField;
+        }
+        set
+        {
+            this.autoStartMulticastField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool AutoStartMulticastSpecified
+    {
+        get
+        {
+            return this.autoStartMulticastFieldSpecified;
+        }
+        set
+        {
+            this.autoStartMulticastFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool SecureRTSPStreaming
+    {
+        get
+        {
+            return this.secureRTSPStreamingField;
+        }
+        set
+        {
+            this.secureRTSPStreamingField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool SecureRTSPStreamingSpecified
+    {
+        get
+        {
+            return this.secureRTSPStreamingFieldSpecified;
+        }
+        set
+        {
+            this.secureRTSPStreamingFieldSpecified = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver10/schema")]
+public partial class VideoEncoder2ConfigurationOptions
+{
+    
+    private string encodingField;
+    
+    private FloatRange qualityRangeField;
+    
+    private VideoResolution2[] resolutionsAvailableField;
+    
+    private IntRange bitrateRangeField;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    private int[] govLengthRangeField;
+    
+    private int maxAnchorFrameDistanceField;
+    
+    private bool maxAnchorFrameDistanceFieldSpecified;
+    
+    private float[] frameRatesSupportedField;
+    
+    private string[] profilesSupportedField;
+    
+    private bool constantBitRateSupportedField;
+    
+    private bool constantBitRateSupportedFieldSpecified;
+    
+    private bool guaranteedFrameRateSupportedField;
+    
+    private bool guaranteedFrameRateSupportedFieldSpecified;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public string Encoding
+    {
+        get
+        {
+            return this.encodingField;
+        }
+        set
+        {
+            this.encodingField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+    public FloatRange QualityRange
+    {
+        get
+        {
+            return this.qualityRangeField;
+        }
+        set
+        {
+            this.qualityRangeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("ResolutionsAvailable", Order=2)]
+    public VideoResolution2[] ResolutionsAvailable
+    {
+        get
+        {
+            return this.resolutionsAvailableField;
+        }
+        set
+        {
+            this.resolutionsAvailableField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+    public IntRange BitrateRange
+    {
+        get
+        {
+            return this.bitrateRangeField;
+        }
+        set
+        {
+            this.bitrateRangeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=4)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public int[] GovLengthRange
+    {
+        get
+        {
+            return this.govLengthRangeField;
+        }
+        set
+        {
+            this.govLengthRangeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public int MaxAnchorFrameDistance
+    {
+        get
+        {
+            return this.maxAnchorFrameDistanceField;
+        }
+        set
+        {
+            this.maxAnchorFrameDistanceField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool MaxAnchorFrameDistanceSpecified
+    {
+        get
+        {
+            return this.maxAnchorFrameDistanceFieldSpecified;
+        }
+        set
+        {
+            this.maxAnchorFrameDistanceFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public float[] FrameRatesSupported
+    {
+        get
+        {
+            return this.frameRatesSupportedField;
+        }
+        set
+        {
+            this.frameRatesSupportedField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string[] ProfilesSupported
+    {
+        get
+        {
+            return this.profilesSupportedField;
+        }
+        set
+        {
+            this.profilesSupportedField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool ConstantBitRateSupported
+    {
+        get
+        {
+            return this.constantBitRateSupportedField;
+        }
+        set
+        {
+            this.constantBitRateSupportedField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool ConstantBitRateSupportedSpecified
+    {
+        get
+        {
+            return this.constantBitRateSupportedFieldSpecified;
+        }
+        set
+        {
+            this.constantBitRateSupportedFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool GuaranteedFrameRateSupported
+    {
+        get
+        {
+            return this.guaranteedFrameRateSupportedField;
+        }
+        set
+        {
+            this.guaranteedFrameRateSupportedField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool GuaranteedFrameRateSupportedSpecified
+    {
+        get
+        {
+            return this.guaranteedFrameRateSupportedFieldSpecified;
+        }
+        set
+        {
+            this.guaranteedFrameRateSupportedFieldSpecified = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver20/media/wsdl")]
+public partial class VideoSourceMode
+{
+    
+    private float maxFramerateField;
+    
+    private VideoResolution maxResolutionField;
+    
+    private string encodingsField;
+    
+    private bool rebootField;
+    
+    private string descriptionField;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    private string tokenField;
+    
+    private bool enabledField;
+    
+    private bool enabledFieldSpecified;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+    public float MaxFramerate
+    {
+        get
+        {
+            return this.maxFramerateField;
+        }
+        set
+        {
+            this.maxFramerateField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+    public VideoResolution MaxResolution
+    {
+        get
+        {
+            return this.maxResolutionField;
+        }
+        set
+        {
+            this.maxResolutionField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+    public string Encodings
+    {
+        get
+        {
+            return this.encodingsField;
+        }
+        set
+        {
+            this.encodingsField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+    public bool Reboot
+    {
+        get
+        {
+            return this.rebootField;
+        }
+        set
+        {
+            this.rebootField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+    public string Description
+    {
+        get
+        {
+            return this.descriptionField;
+        }
+        set
+        {
+            this.descriptionField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=5)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string token
+    {
+        get
+        {
+            return this.tokenField;
+        }
+        set
+        {
+            this.tokenField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public bool Enabled
+    {
+        get
+        {
+            return this.enabledField;
+        }
+        set
+        {
+            this.enabledField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool EnabledSpecified
+    {
+        get
+        {
+            return this.enabledFieldSpecified;
+        }
+        set
+        {
+            this.enabledFieldSpecified = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver20/media/wsdl")]
+public partial class WebRTCConfiguration
+{
+    
+    private string signalingServerField;
+    
+    private string certPathValidationPolicyIDField;
+    
+    private string authorizationServerField;
+    
+    private string defaultProfileField;
+    
+    private bool enabledField;
+    
+    private bool connectedField;
+    
+    private bool connectedFieldSpecified;
+    
+    private string errorField;
+    
+    private System.Xml.XmlElement[] anyField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(DataType="anyURI", Order=0)]
+    public string SignalingServer
+    {
+        get
+        {
+            return this.signalingServerField;
+        }
+        set
+        {
+            this.signalingServerField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+    public string CertPathValidationPolicyID
+    {
+        get
+        {
+            return this.certPathValidationPolicyIDField;
+        }
+        set
+        {
+            this.certPathValidationPolicyIDField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+    public string AuthorizationServer
+    {
+        get
+        {
+            return this.authorizationServerField;
+        }
+        set
+        {
+            this.authorizationServerField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+    public string DefaultProfile
+    {
+        get
+        {
+            return this.defaultProfileField;
+        }
+        set
+        {
+            this.defaultProfileField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+    public bool Enabled
+    {
+        get
+        {
+            return this.enabledField;
+        }
+        set
+        {
+            this.enabledField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+    public bool Connected
+    {
+        get
+        {
+            return this.connectedField;
+        }
+        set
+        {
+            this.connectedField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool ConnectedSpecified
+    {
+        get
+        {
+            return this.connectedFieldSpecified;
+        }
+        set
+        {
+            this.connectedFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+    public string Error
+    {
+        get
+        {
+            return this.errorField;
+        }
+        set
+        {
+            this.errorField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAnyElementAttribute(Order=7)]
+    public System.Xml.XmlElement[] Any
+    {
+        get
+        {
+            return this.anyField;
+        }
+        set
+        {
+            this.anyField = value;
+        }
+    }
+}
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.onvif.org/ver10/schema")]
+public enum ReceiverMode
+{
+    
+    /// <remarks/>
+    AutoConnect,
+    
+    /// <remarks/>
+    AlwaysConnect,
+    
+    /// <remarks/>
+    NeverConnect,
+    
+    /// <remarks/>
+    Unknown,
+}
+
+
+
 }

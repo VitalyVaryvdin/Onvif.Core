@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 
 namespace Onvif.Core.Discovery.Models
 {
@@ -12,7 +11,7 @@ namespace Onvif.Core.Discovery.Models
         public IEnumerable<string> XAdresses { get; internal set; }
         public string Model { get; internal set; }
         public string Name { get; internal set; }
-        public IPAddress Address { get; internal set; }
+        public System.Net.IPAddress Address { get; internal set; }
 
         public override bool Equals(object obj)
         {

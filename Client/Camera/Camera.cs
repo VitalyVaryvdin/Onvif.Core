@@ -1,6 +1,7 @@
 ﻿using Onvif.Core.Client.Common;
 using Onvif.Core.Client.Imaging;
 using Onvif.Core.Client.Media;
+using Onvif.Core.Client.Media2;
 using Onvif.Core.Client.Ptz;
 
 using System;
@@ -46,7 +47,7 @@ namespace Onvif.Core.Client.Camera
             return usable ? camera : null;
         }
 
-        public AutoFocusMode FocusMode { get; set; }
+        public Onvif.Core.Client.Common.AutoFocusMode FocusMode { get; set; }
 
         public System.DateTime LastUse { get; set; }
 
@@ -115,6 +116,16 @@ namespace Onvif.Core.Client.Camera
             }
         }
 
+        private Media2Client _media2;
+        public Media2Client Media2
+        {
+            get
+            {
+                _media2 ??= OnvifClientFactory.CreateMedia2ClientAsync(Account.Host, Account.UserName, Account.Password).Result;
+                return _media2;
+            }
+        }
+
         private Profile _profile;
         public Profile Profile
         {
@@ -129,8 +140,8 @@ namespace Onvif.Core.Client.Camera
             }
         }
 
-        private VideoSource _videoSource;
-        public VideoSource VideoSource
+        private Onvif.Core.Client.Common.VideoSource _videoSource;
+        public Onvif.Core.Client.Common.VideoSource VideoSource
         {
             get
             {

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--<?xml-stylesheet type="text/xsl" href="onvif-schema-viewer.xsl"?>-->
 <!--
-Copyright (c) 2008-2018 by ONVIF: Open Network Video Interface Forum. All rights reserved.
+Copyright (c) 2008-2025 by ONVIF: Open Network Video Interface Forum. All rights reserved.
 
 Recipients of this document may copy, distribute, publish, or display this document so long as this copyright notice, license and disclaimer are retained with all copies of the document. No license is granted to modify this document.
 
 THIS DOCUMENT IS PROVIDED "AS IS," AND THE CORPORATION AND ITS MEMBERS AND THEIR AFFILIATES, MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR TITLE; THAT THE CONTENTS OF THIS DOCUMENT ARE SUITABLE FOR ANY PURPOSE; OR THAT THE IMPLEMENTATION OF SUCH CONTENTS WILL NOT INFRINGE ANY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
 IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, PUNITIVE OR CONSEQUENTIAL DAMAGES, ARISING OUT OF OR RELATING TO ANY USE OR DISTRIBUTION OF THIS DOCUMENT, WHETHER OR NOT (1) THE CORPORATION, MEMBERS OR THEIR AFFILIATES HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, OR (2) SUCH DAMAGES WERE REASONABLY FORESEEABLE, AND ARISING OUT OF OR RELATING TO ANY USE OR DISTRIBUTION OF THIS DOCUMENT.  THE FOREGOING DISCLAIMER AND LIMITATION ON LIABILITY DO NOT APPLY TO, INVALIDATE, OR LIMIT REPRESENTATIONS AND WARRANTIES MADE BY THE MEMBERS AND THEIR RESPECTIVE AFFILIATES TO THE CORPORATION AND OTHER MEMBERS IN CERTAIN WRITTEN POLICIES OF THE CORPORATION.
 -->
-<xs:schema xmlns:tt="http://www.onvif.org/ver10/schema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2" xmlns:xop="http://www.w3.org/2004/08/xop/include" xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope" targetNamespace="http://www.onvif.org/ver10/schema" elementFormDefault="qualified" version="18.06">
+<xs:schema xmlns:tt="http://www.onvif.org/ver10/schema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2" xmlns:xop="http://www.w3.org/2004/08/xop/include" xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope" targetNamespace="http://www.onvif.org/ver10/schema" elementFormDefault="qualified" version="25.12">
 	<xs:include schemaLocation="common.xsd"/>
-	<xs:import namespace="http://www.w3.org/2005/05/xmlmime" schemaLocation="http://www.w3.org/2005/05/xmlmime"/>
-	<xs:import namespace="http://www.w3.org/2003/05/soap-envelope" schemaLocation="http://www.w3.org/2003/05/soap-envelope"/>
+	<xs:import namespace="http://www.w3.org/2005/05/xmlmime" schemaLocation="https://www.w3.org/2005/05/xmlmime"/>
+	<xs:import namespace="http://www.w3.org/2003/05/soap-envelope" schemaLocation="https://www.w3.org/2003/05/soap-envelope"/>
 	<xs:import namespace="http://docs.oasis-open.org/wsn/b-2" schemaLocation="http://docs.oasis-open.org/wsn/b-2.xsd"/>
-	<xs:import namespace="http://www.w3.org/2004/08/xop/include" schemaLocation="http://www.w3.org/2004/08/xop/include"/>
+	<xs:import namespace="http://www.w3.org/2004/08/xop/include" schemaLocation="https://www.w3.org/2004/08/xop/include"/>
 	<!--===============================-->
 	<!--         Generic Types         -->
 	<!--===============================-->
@@ -75,16 +75,6 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 		</xs:sequence>
 	</xs:complexType>
 	<!--===============================-->
-	<xs:complexType name="IntRange">
-		<xs:annotation>
-			<xs:documentation>Range of values greater equal Min value and less equal Max value.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Min" type="xs:int"/>
-			<xs:element name="Max" type="xs:int"/>
-		</xs:sequence>
-	</xs:complexType>
-	<!--===============================-->
 	<xs:complexType name="FloatRange">
 		<xs:annotation>
 			<xs:documentation>Range of values greater equal Min value and less equal Max value.</xs:documentation>
@@ -105,7 +95,7 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 		</xs:sequence>
 	</xs:complexType>
 	<!--===============================-->
-	<xs:complexType name="IntList">
+	<xs:complexType name="IntItems">
 		<xs:annotation>
 			<xs:documentation>List of values.</xs:documentation>
 		</xs:annotation>
@@ -114,11 +104,11 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 		</xs:sequence>
 	</xs:complexType>
 	<!--===============================-->
-	<xs:simpleType name="IntAttrList">
+	<xs:simpleType name="IntList">
 		<xs:list itemType="xs:int"/>
 	</xs:simpleType>
 	<!--===============================-->
-	<xs:simpleType name="FloatAttrList">
+	<xs:simpleType name="FloatList">
 		<xs:list itemType="xs:float"/>
 	</xs:simpleType>
 	<!--===============================-->
@@ -126,15 +116,34 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 		<xs:list itemType="xs:string"/>
 	</xs:simpleType>
 	<!--===============================-->
+	<xs:simpleType name="StringList">
+		<xs:list itemType="xs:string"/>
+	</xs:simpleType>
+	<!--===============================-->
 	<xs:simpleType name="ReferenceTokenList">
 		<xs:list itemType="tt:ReferenceToken"/>
 	</xs:simpleType>
 	<!--===============================-->
-	<xs:complexType name="FloatList">
+	<xs:complexType name="FloatItems">
 		<xs:sequence>
 			<xs:element name="Items" type="xs:float" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	<!--===============================-->
+	<xs:element name="StringItems">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Item" type="xs:string" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="StringList" type="tt:StringList"/>
+	<xs:element name="IntRange" type="tt:IntRange"/>
+	<xs:element name="IntList" type="tt:IntList"/>
+	<xs:element name="FloatRange" type="tt:FloatRange"/>
+	<xs:element name="FloatList" type="tt:FloatList"/>
+	<xs:element name="DurationRange" type="tt:DurationRange"/>
+	<xs:element name="IntRectangleRange" type="tt:IntRectangleRange"/>
 	<!--===============================-->
 	<xs:complexType name="AnyHolder">
 		<xs:sequence>
@@ -416,6 +425,13 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 			</xs:element>
 			<xs:element name="Extension" type="tt:RotateExtension" minOccurs="0"/>
 		</xs:sequence>
+		<xs:attribute name="Mirror" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>When enabled, the video will be flipped horizontally. If applied alongside rotation, the mirror effect shall be executed after the rotation. Additionally,<br/> 
+				when Mirror is enabled and Reverse=Auto is set in PTControlDirection or if the device doesn’t support Reverse in PTControlDirection, the device shall automatically adjust the pan direction. 
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 		<xs:anyAttribute processContents="lax"/>
 	</xs:complexType>
 	<!--===============================-->
@@ -542,13 +558,24 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 					<xs:documentation>Supported options of Rotate mode parameter.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DegreeList" type="tt:IntList" minOccurs="0">
+			<xs:element name="DegreeList" type="tt:IntItems" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>List of supported degree value for rotation.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Extension" type="tt:RotateOptionsExtension" minOccurs="0"/>
 		</xs:sequence>
+		<xs:attribute name="Reboot" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>Signals if a device requires a reboot after changing the rotation or mirror.
+				If a device can handle rotation changes or mirror changes without rebooting this value shall be set to false.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Mirror" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>Signals if video source mirroring is supported.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 		<xs:anyAttribute processContents="lax"/>
 	</xs:complexType>
 	<!--===============================-->
@@ -607,7 +634,7 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="tt:Fisheye">
-				<xs:annotation>	
+				<xs:annotation>
 					<xs:documentation>Undewarped viewmode from device supporting fisheye lens.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -637,7 +664,7 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="tt:RightHalf">
-				<xs:annotation>	
+				<xs:annotation>
 					<xs:documentation>Viewmode combining the right side sensors, applicable for devices supporting multiple sensors.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -697,6 +724,15 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 					</xs:element>
 					<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first Vendor then ONVIF -->
 				</xs:sequence>
+				<xs:attribute name="GuaranteedFrameRate" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>
+							A value of true indicates that frame rate is a fixed value rather than an upper limit,
+							and that the video encoder shall prioritize frame rate over all other adaptable
+							configuration values such as bitrate.  Default is false.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 				<xs:anyAttribute processContents="lax"/>
 			</xs:extension>
 		</xs:complexContent>
@@ -730,12 +766,12 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 		<xs:sequence>
 			<xs:element name="Width" type="xs:int">
 				<xs:annotation>
-					<xs:documentation>Number of the columns of the Video image.</xs:documentation>
+					<xs:documentation>Number of the columns of the Video image. If there is a 90-degree rotation, this represents the number of lines of the Video image.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Height" type="xs:int">
 				<xs:annotation>
-					<xs:documentation>Number of the lines of the Video image.</xs:documentation>
+					<xs:documentation>Number of the lines of the Video image. If there is a 90-degree rotation, this represents the number of columns of the Video image.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -815,6 +851,13 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 			</xs:element>
 			<xs:element name="Extension" type="tt:VideoEncoderOptionsExtension" minOccurs="0"/>
 		</xs:sequence>
+		<xs:attribute name="GuaranteedFrameRateSupported" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>
+					Indicates the support for the GuaranteedFrameRate attribute on the VideoEncoderConfiguration element.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 		<xs:anyAttribute processContents="lax"/>
 	</xs:complexType>
 	<!--===============================-->
@@ -978,11 +1021,11 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 	<!--===============================-->
 	<xs:simpleType name="VideoEncodingMimeNames">
 		<xs:annotation>
-			<xs:documentation>ONVIF prominent MIME type names as referenced by IANA. See also <a href='http://www.iana.org/assignments/media-types/media-types.xhtml'>IANA Media Types</a>.</xs:documentation>
+			<xs:documentation>Video Media Subtypes as referenced by IANA (without the leading "video/" Video Media Type).  See also <a href="https://www.iana.org/assignments/media-types/media-types.xhtml#video"> IANA Media Types</a>.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="JPEG"/>
-			<xs:enumeration value="MPV4-ES"/>
+			<xs:enumeration value="MPV4-ES"/>			<!-- MPV4-ES actually references MP4V-ES.  For backward compatibility, it remains misspelled. -->
 			<xs:enumeration value="H264"/>
 			<xs:enumeration value="H265"/>
 		</xs:restriction>
@@ -1005,7 +1048,7 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 				<xs:sequence>
 					<xs:element name="Encoding" type="xs:string">
 						<xs:annotation>
-							<xs:documentation>Mime name of the supported video format. For name definitions see tt:VideoEncodingMimeNames and <a href='http://www.iana.org/assignments/media-types/media-types.xhtml'>IANA Media Types</a>.</xs:documentation>
+							<xs:documentation>Video Media Subtype for the video format. For definitions see tt:VideoEncodingMimeNames and <a href="https://www.iana.org/assignments/media-types/media-types.xhtml#video"> IANA Media Types</a>.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Resolution" type="tt:VideoResolution2">
@@ -1035,9 +1078,28 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 						<xs:documentation>Group of Video frames length. Determines typically the interval in which the I-Frames will be coded. An entry of 1 indicates I-Frames are continuously generated. An entry of 2 indicates that every 2nd image is an I-Frame, and 3 only every 3rd frame, etc. The frames in between are coded as P or B Frames.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
+				<xs:attribute name="AnchorFrameDistance" type="xs:int">
+					<xs:annotation>
+						<xs:documentation>Distance between anchor frames of type I-Frame and P-Frame. '1' indicates no B-Frames, '2' indicates that every 2nd frame is encoded as B-Frame, '3' indicates a structure like IBBPBBP..., etc.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 				<xs:attribute name="Profile" type="xs:string">
 					<xs:annotation>
 						<xs:documentation>The encoder profile as defined in tt:VideoEncodingProfiles.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="GuaranteedFrameRate" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>
+							A value of true indicates that frame rate is a fixed value rather than an upper limit,
+							and that the video encoder shall prioritize frame rate over all other adaptable
+							configuration values such as bitrate.  Default is false.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="Signed" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>Indicates if this stream will be signed according to the Media Signing Specification.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:anyAttribute processContents="lax"/>
@@ -1049,12 +1111,12 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 		<xs:sequence>
 			<xs:element name="Width" type="xs:int">
 				<xs:annotation>
-					<xs:documentation>Number of the columns of the Video image.</xs:documentation>
+					<xs:documentation>Number of the columns of the Video image. If there is a 90-degree rotation, this represents the number of lines of the Video image.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Height" type="xs:int">
 				<xs:annotation>
-					<xs:documentation>Number of the lines of the Video image.</xs:documentation>
+					<xs:documentation>Number of the lines of the Video image. If there is a 90-degree rotation, this represents the number of columns of the Video image.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first ONVIF then Vendor -->
@@ -1088,7 +1150,7 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 		<xs:sequence>
 			<xs:element name="Encoding" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>Mime name of the supported Video format. For name definitions see tt:VideoEncodingMimeNames and <a href='http://www.iana.org/assignments/media-types/media-types.xhtml'>IANA Media Types</a>.</xs:documentation>
+					<xs:documentation>Video Media Subtype for the video format. For definitions see tt:VideoEncodingMimeNames and <a href="https://www.iana.org/assignments/media-types/media-types.xhtml#video"> IANA Media Types</a>.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="QualityRange" type="tt:FloatRange">
@@ -1108,12 +1170,17 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 			</xs:element>
 			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first ONVIF then Vendor -->
 		</xs:sequence>
-		<xs:attribute name="GovLengthRange" type="tt:IntAttrList">
+		<xs:attribute name="GovLengthRange" type="tt:IntList">
 			<xs:annotation>
 				<xs:documentation>Exactly two values, which define the Lower and Upper bounds for the supported group of Video frames length. These values typically correspond to the I-Frame distance.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="FrameRatesSupported" type="tt:FloatAttrList">
+		<xs:attribute name="MaxAnchorFrameDistance" type="xs:int">
+			<xs:annotation>
+				<xs:documentation>Signals support for B-Frames. Upper bound for the supported anchor frame distance (must be larger than one).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="FrameRatesSupported" type="tt:FloatList">
 			<xs:annotation>
 				<xs:documentation>List of supported target frame rates in fps (frames per second). The list shall be sorted with highest values first.</xs:documentation>
 			</xs:annotation>
@@ -1126,6 +1193,13 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 		<xs:attribute name="ConstantBitRateSupported" type="xs:boolean">
 			<xs:annotation>
 				<xs:documentation>Signal whether enforcing constant bitrate is supported.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="GuaranteedFrameRateSupported" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>
+					Indicates the support for the GuaranteedFrameRate attribute on the VideoEncoder2Configuration element.
+				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:anyAttribute processContents="lax"/>
@@ -1231,12 +1305,12 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 					<xs:documentation>The enoding used for audio data (either G.711, G.726 or AAC)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="BitrateList" type="tt:IntList">
+			<xs:element name="BitrateList" type="tt:IntItems">
 				<xs:annotation>
 					<xs:documentation>List of supported bitrates in kbps for the specified Encoding</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SampleRateList" type="tt:IntList">
+			<xs:element name="SampleRateList" type="tt:IntItems">
 				<xs:annotation>
 					<xs:documentation>List of supported Sample Rates in kHz for the specified Encoding</xs:documentation>
 				</xs:annotation>
@@ -1250,12 +1324,15 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 	<!--===============================-->
 	<xs:simpleType name="AudioEncodingMimeNames">
 		<xs:annotation>
-			<xs:documentation>ONVIF prominent MIME type names as referenced by IANA. See also <a href='http://www.iana.org/assignments/media-types/media-types.xhtml'>IANA Media Types</a> .</xs:documentation>
+			<xs:documentation>Audio Media Subtypes as referenced by IANA (without the leading "audio/" Audio Media Type and except for the audio types defined in the restriction).  See also <a href="https://www.iana.org/assignments/media-types/media-types.xhtml#audio"> IANA Media Types</a>.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="PCMU"/>		<!-- G.711 uLaw -->
-			<xs:enumeration value="G726"/>
+			<xs:enumeration value="G726">
+			<xs:annotation><xs:documentation>AudioEncodingMimeName G726 is used to represent G726-16,G726-24,G726-32 and G726-40 defined in the IANA Media Types</xs:documentation></xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="MP4A-LATM"/>		<!-- AAC -->
+			<xs:enumeration value="mpeg4-generic"/>
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -1265,7 +1342,7 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 				<xs:sequence>
 					<xs:element name="Encoding" type="xs:string">
 						<xs:annotation>
-							<xs:documentation>Mime name of the supported audio format. For definitions see tt:AudioEncodingMimeNames and <a href='http://www.iana.org/assignments/media-types/media-types.xhtml'>IANA Media Types</a>.</xs:documentation>
+							<xs:documentation>Audio Media Subtype for the audio format. For definitions see tt:AudioEncodingMimeNames and <a href="https://www.iana.org/assignments/media-types/media-types.xhtml#audio"> IANA Media Types</a>.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Multicast" type="tt:MulticastConfiguration" minOccurs="0">
@@ -1295,15 +1372,15 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 		<xs:sequence>
 			<xs:element name="Encoding" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>Mime name of the supported audio format. For definitions see tt:AudioEncodingMimeNames and <a href='http://www.iana.org/assignments/media-types/media-types.xhtml'>IANA Media Types</a>.</xs:documentation>
+					<xs:documentation>Audio Media Subtype for the audio format. For definitions see tt:AudioEncodingMimeNames and <a href="https://www.iana.org/assignments/media-types/media-types.xhtml#audio"> IANA Media Types</a>.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="BitrateList" type="tt:IntList">
+			<xs:element name="BitrateList" type="tt:IntItems">
 				<xs:annotation>
 					<xs:documentation>List of supported bitrates in kbps for the specified Encoding</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SampleRateList" type="tt:IntList">
+			<xs:element name="SampleRateList" type="tt:IntItems">
 				<xs:annotation>
 					<xs:documentation>List of supported Sample Rates in kHz for the specified Encoding</xs:documentation>
 				</xs:annotation>
@@ -1366,7 +1443,12 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 						</xs:annotation>
 					</xs:element>
 					<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="AnalyticsEngineConfiguration" type="tt:AnalyticsEngineConfiguration" minOccurs="0"/>
+					<xs:element name="AnalyticsEngineConfiguration" type="tt:AnalyticsEngineConfiguration" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Indication which AnalyticsModules shall output metadata.
+							Note that the streaming behavior is undefined if the list includes items that are not part of the associated AnalyticsConfiguration.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="Extension" type="tt:MetadataConfigurationExtension" minOccurs="0"/>
 				</xs:sequence>
 				<xs:attribute name="CompressionType" type="xs:string">
@@ -1377,6 +1459,11 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 				<xs:attribute name="GeoLocation" type="xs:boolean">
 					<xs:annotation>
 						<xs:documentation>Optional parameter to configure if the metadata stream shall contain the Geo Location coordinates of each target.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="ShapePolygon" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>Optional parameter to configure if the generated metadata stream should contain shape information as polygon.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:anyAttribute processContents="lax"/>
@@ -1400,6 +1487,11 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 			<xs:element name="Position" type="xs:boolean">
 				<xs:annotation>
 					<xs:documentation>True if the metadata stream shall contain the PTZ position</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FieldOfView" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>True if the metadata stream shall contain the field-of-view information</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1433,6 +1525,11 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 		<xs:attribute name="GeoLocation" type="xs:boolean">
 			<xs:annotation>
 				<xs:documentation>True if the device is able to stream the Geo Located positions of each target.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="MaxContentFilterSize" type="xs:int">
+			<xs:annotation>
+				<xs:documentation>A device signalling support for content filtering shall support expressions with the provided expression size.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:anyAttribute processContents="lax"/>
@@ -1487,6 +1584,11 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Extension" type="tt:PTZStatusFilterOptionsExtension" minOccurs="0"/>
+			<xs:element name="FieldOfViewSupported" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>True if the device is able to stream the field-of-view information.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 		<xs:anyAttribute processContents="lax"/>
 	</xs:complexType>
@@ -1728,6 +1830,68 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+
+
+	<!--===============================-->
+	<!--          FrequencyDecibelPair            -->
+	<!--===============================-->
+
+	<xs:complexType name="FrequencyDecibelPair">
+	<xs:sequence>
+		<xs:element name="CenterFrequency" type="xs:int">
+			<xs:annotation>
+				<xs:documentation>The center frequency of the band in hertz (Readonly). For example, value of 1000 refers to 1kHz and 2000 refers to 2kHz.</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+		<xs:element name="Decibel" type="xs:float">
+			<xs:annotation>
+				<xs:documentation>Decibel value associated with the center frequency.</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+		<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		<!-- first Vendor then ONVIF -->
+	</xs:sequence>
+	</xs:complexType>
+
+	<!--===============================-->
+	<!--          EQPreset            -->
+	<!--===============================-->
+	<xs:complexType name="EQPreset">
+		<xs:sequence>
+			<xs:element name="Token" type="tt:ReferenceToken">
+				<xs:annotation>
+					<xs:documentation>Unique identifier for the preset.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Preset name. (Readonly)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="isDefault" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>This indicates whether the EQ preset is designated as the default. When the scheduler is inactive, this preset will be applied. Only one preset can be set as the default among the EQ presets linked to an audio output. If all presets have isDefault set to false, the device may automatically select one preset as the default.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ScheduleToken" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Optional schedule token (if supported).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="isFrequencyDecibelEditable" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Indicates whether the device allows changing the decibel level for frequencies. (Readonly)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FrequencyDecibelPair" type="tt:FrequencyDecibelPair" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of frequency decibel pairs, each defined by a center frequency and its corresponding decibel value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first Vendor then ONVIF -->
+		</xs:sequence>
+	</xs:complexType>
+
 	<!--===============================-->
 	<!--          AudioOutputConfigurationOptions            -->
 	<!--===============================-->
@@ -1764,6 +1928,16 @@ IN NO EVENT WILL THE CORPORATION OR ITS MEMBERS OR THEIR AFFILIATES BE LIABLE FO
 				<xs:annotation>
 					<xs:documentation>Minimum and maximum level range supported for this Output.</xs:documentation>
 				</xs:annotation>
+			</xs:element>
+			<xs:element name="EQPresetScheduleSupport" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates whether EQPreset scheduling is supported.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EQPresets" type="tt:EQPreset" minOccurs="0" maxOccurs="unbounded">
+			<xs:annotation>
+					<xs:documentation>List of supported EQPresets.</xs:documentation>
+			</xs:annotation>
 			</xs:element>
 			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first Vendor then ONVIF -->
 		</xs:sequence>
@@ -1813,12 +1987,12 @@ decoding .A decoder shall decode every data it receives (according to its capabi
 	<!--===============================-->
 	<xs:complexType name="G711DecOptions">
 		<xs:sequence>
-			<xs:element name="Bitrate" type="tt:IntList">
+			<xs:element name="Bitrate" type="tt:IntItems">
 				<xs:annotation>
 					<xs:documentation>List of supported bitrates in kbps</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SampleRateRange" type="tt:IntList">
+			<xs:element name="SampleRateRange" type="tt:IntItems">
 				<xs:annotation>
 					<xs:documentation>List of supported sample rates in kHz</xs:documentation>
 				</xs:annotation>
@@ -1830,12 +2004,12 @@ decoding .A decoder shall decode every data it receives (according to its capabi
 	<!--===============================-->
 	<xs:complexType name="AACDecOptions">
 		<xs:sequence>
-			<xs:element name="Bitrate" type="tt:IntList">
+			<xs:element name="Bitrate" type="tt:IntItems">
 				<xs:annotation>
 					<xs:documentation>List of supported bitrates in kbps</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SampleRateRange" type="tt:IntList">
+			<xs:element name="SampleRateRange" type="tt:IntItems">
 				<xs:annotation>
 					<xs:documentation>List of supported sample rates in kHz</xs:documentation>
 				</xs:annotation>
@@ -1847,12 +2021,12 @@ decoding .A decoder shall decode every data it receives (according to its capabi
 	<!--===============================-->
 	<xs:complexType name="G726DecOptions">
 		<xs:sequence>
-			<xs:element name="Bitrate" type="tt:IntList">
+			<xs:element name="Bitrate" type="tt:IntItems">
 				<xs:annotation>
 					<xs:documentation>List of supported bitrates in kbps</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SampleRateRange" type="tt:IntList">
+			<xs:element name="SampleRateRange" type="tt:IntItems">
 				<xs:annotation>
 					<xs:documentation>List of supported sample rates in kHz</xs:documentation>
 				</xs:annotation>
@@ -1866,6 +2040,230 @@ decoding .A decoder shall decode every data it receives (according to its capabi
 		<xs:sequence>
 			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first Vendor then ONVIF -->
 		</xs:sequence>
+	</xs:complexType>
+	<!--===============================-->
+	<!--     MulticastAudioDecoder     -->
+	<!--===============================-->
+	<xs:complexType name="MulticastAudioDecoderConfiguration">
+		<xs:annotation>
+			<xs:documentation>
+				Configuration for the Multicast Audio Decoder.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tt:ConfigurationEntity">
+				<xs:sequence>
+					<xs:element name="Enable" type="xs:boolean">
+						<xs:annotation>
+							<xs:documentation>
+								Indicates whether the Multicast Audio Decoder is enabled or disabled.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="AudioOutputToken" type="tt:ReferenceToken" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Token of the physical Audio output. This element is optional and can occur multiple times.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Encoding" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>
+								Specifies the encoding type according to IANA media types.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Bitrate" type="xs:int">
+						<xs:annotation>
+							<xs:documentation>
+								The bitrate of the audio stream in bits per second.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="SamplingRate" type="xs:int">
+						<xs:annotation>
+							<xs:documentation>
+								The sampling rate of the audio stream in kHz.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Multicast" type="tt:MulticastReceiverConfiguration">
+						<xs:annotation>
+							<xs:documentation>
+								Contains configuration details for multicast settings.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="RTPPayloadType" type="xs:int">
+						<xs:annotation>
+							<xs:documentation>
+							Defines the RTP payload type used for the audio stream.
+							To ensure compatibility, it is recommended to use dynamic payload types (96 and above), as specified in RFC 3551.
+							Standard payload types (0-95) should only be used for predefined audio formats matching the audio encoding as defined in 
+							<a href="https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-1">IANA RTP Payload Types</a>, 
+							as using them for non-standard media may lead to unexpected errors or interoperability issues.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Priority" type="xs:int">
+						<xs:annotation>
+							<xs:documentation>
+								Indicates the priority level when multiple configurations are active. 
+								A higher value signifies a higher priority. If several configurations have the same priority value the order between those configurations is undefined.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="MediaFormatParameters" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Optional media format parameters as specified in SDP, such as:
+								a=fmtp:101 stereo=1; sprop-stereo=1.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="SRTPPreSharedParameters" type="tt:SRTPPreShared" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								 Optional configuration parameters for SRTP pre-shared key usage, applicable when SRTP is supported. When this configuration is present, RTP packets shall be encrypted.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/> <!-- first Vendor then ONVIF -->
+				</xs:sequence>
+				<xs:anyAttribute processContents="lax"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--===============================-->
+	<xs:complexType name="SRTPPreShared">
+		<xs:sequence>
+			<xs:element name="SRTPPSK" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+				An optional SRTP Pre-Shared Key (PSK) represented as a hexadecimal string.
+				This includes both the SRTP master key, followed by the master salt.
+				The sizes of the key and salt depend on the specified SRTPCryptoPolicy.
+				When this element is specified, RTP packets shall be encrypted.
+				The SRTPPSK shall never be returned on a get method.
+				</xs:documentation>
+			</xs:annotation>
+			</xs:element>
+			<xs:element name="SecureStreamingProtocolAlgorithm" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+				Specifies the cryptographic algorithm when using SRTP,
+				selecting from predefined values provided in the GetMulticastAudioDecoderConfigurationOptions response.
+				</xs:documentation>
+			</xs:annotation>
+			</xs:element>
+			<xs:element name="ROCExtMapID" type="xs:int">
+			<xs:annotation>
+				<xs:documentation>
+				The RTP header extension ID (ExtMapID) used to identify the ROC extension, as defined in RFC 8285.
+				Valid values are 1 to 14 for one-byte header extensions.
+				</xs:documentation>
+			</xs:annotation>
+			</xs:element>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/> <!-- first Vendor then ONVIF -->
+		</xs:sequence>
+		<xs:anyAttribute processContents="lax"/>
+	</xs:complexType>
+	<!--===============================-->
+	<xs:complexType name="MulticastReceiverConfiguration">
+		<xs:sequence>
+			<xs:element name="Address" type="tt:IPAddress">
+				<xs:annotation>
+					<xs:documentation>The multicast address (if this address is set to 0 no multicast streaming is enabled)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Port" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>The RTP multicast destination port. A device may support RTCP. In this case the port value shall be even to allow the corresponding RTCP stream to be mapped to the next higher (odd) destination port number as defined in the RTSP specification.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TTL" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>In case of IPv6 the TTL value is assumed as the hop limit. Note that for IPV6 and administratively scoped IPv4 multicast the primary use for hop limit / TTL is to prevent packets from (endlessly) circulating and not limiting scope. In these cases the address contains the scope.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InterfaceToken" type="tt:ReferenceToken" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Unique identifier of the network interface on the device. If not specified, all available interfaces will be used for listening. </xs:documentation>
+					</xs:annotation>
+			</xs:element>
+			<xs:element name="SourceSpecificMulticast" type="tt:IPAddress" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>When a source-specific multicast address is configured, the device will process multicast data only from the specified source, in accordance with SSM principles defined in RFC 4607.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first Vendor then ONVIF -->
+		</xs:sequence>
+		<xs:anyAttribute processContents="lax"/>
+	</xs:complexType>
+	<!--===============================-->
+	<xs:complexType name="MulticastAudioDecoderConfigurationOptions">
+		<xs:sequence>
+			<xs:element name="EncodingOptions" type="tt:AudioDecoder2Options">
+				<xs:annotation>
+					<xs:documentation>Supported encoding options for the multicast audio decoder.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PriorityRange" type="tt:IntRange">
+				<xs:annotation>
+					<xs:documentation>
+						Specifies the priority range as an integer. This indicates the priority level for audio configuration.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SecureStreamingProtocolAlgorithms" type="tt:StringList" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+							An optional parameter specifies the list of supported cryptographic algorithms when SRTP support is signaled as 'true' in the GetServiceCapabilitiesResponse.
+							Refer to tt:SrtpSecurityAlgorithms for the acceptable values.
+							</xs:documentation>
+						</xs:annotation>
+			</xs:element>
+			<xs:element name="AudioOutputTokens" type="tt:StringList" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						Optional list of physical Audio output tokens. This element is used when only certain audio outputs can be configured for this token.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first ONVIF then Vendor -->
+		</xs:sequence>
+		<xs:anyAttribute processContents="lax"/>
+	</xs:complexType>
+	<!--===============================-->
+	<xs:complexType name="AudioDecoder2Options">
+		<xs:sequence>
+			<xs:element name="Encoding" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Audio Media Subtype for the audio format. For definitions see tt:AudioEncodingMimeNames and <a href="https://www.iana.org/assignments/media-types/media-types.xhtml#audio"> IANA Media Types</a>.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BitrateList" type="tt:IntItems">
+				<xs:annotation>
+					<xs:documentation>List of supported bitrates in kbps for the specified Encoding</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SampleRateList" type="tt:IntItems">
+				<xs:annotation>
+					<xs:documentation>List of supported Sample Rates in kHz for the specified Encoding</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RTPPayloadType" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						Optional element for specifying the RTP payload type, 
+						particularly when it is fixed for a specific audio encoding as defined in <a href="https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-1">IANA RTP Payload Types</a>.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first ONVIF then Vendor -->
+		</xs:sequence>
+		<xs:anyAttribute processContents="lax"/>
 	</xs:complexType>
 	<!--===============================-->
 	<!--          Streaming            -->
@@ -2424,12 +2822,12 @@ decoding .A decoder shall decode every data it receives (according to its capabi
 		<xs:sequence>
 			<xs:element name="FromDHCP" type="xs:boolean">
 				<xs:annotation>
-					<xs:documentation>Indicates whether the hostname is obtained from DHCP or not.</xs:documentation>
+					<xs:documentation>Indicates whether the hostname has been obtained from DHCP or not.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Name" type="xs:token" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Indicates the hostname.</xs:documentation>
+					<xs:documentation>Indicates the device hostname or an empty string if no hostname has been assigned.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Extension" type="tt:HostnameInformationExtension" minOccurs="0"/>
@@ -3743,6 +4141,22 @@ decoding .A decoder shall decode every data it receives (according to its capabi
 		</xs:restriction>
 	</xs:simpleType>
 	<!--===============================-->
+	<xs:complexType name="UserRole">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Name of the editable user level.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Functions" type="tt:StringList">
+				<xs:annotation>
+					<xs:documentation>Names of the permitted function for the editable user level. The names must be prepended by the namespace prefix and colon.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:anyAttribute processContents="lax"/>
+	</xs:complexType>
+	<!--===============================-->
 	<xs:complexType name="User">
 		<xs:sequence>
 			<xs:element name="Username" type="xs:string">
@@ -3767,6 +4181,11 @@ decoding .A decoder shall decode every data it receives (according to its capabi
 	<!--===============================-->
 	<xs:complexType name="UserExtension">
 		<xs:sequence>
+			<xs:element name="Roles" type="tt:StringList" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The names of the roles assigned to the user.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first Vendor then ONVIF -->
 		</xs:sequence>
 	</xs:complexType>
@@ -3818,7 +4237,7 @@ decoding .A decoder shall decode every data it receives (according to its capabi
 			</xs:element>
 			<xs:element name="Status" type="xs:boolean">
 				<xs:annotation>
-					<xs:documentation>Indicates whether or not a certificate is used in a HTTPS configuration.</xs:documentation>
+					<xs:documentation>Indicates whether or not a certificate is used in an HTTPS configuration.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first Vendor then ONVIF -->
@@ -4360,12 +4779,12 @@ decoding .A decoder shall decode every data it receives (according to its capabi
 			</xs:element>
 			<xs:element name="Extension" type="tt:PTZConfigurationOptions2" minOccurs="0"/>
 		</xs:sequence>
-		<xs:attribute name="PTZRamps" type="tt:IntAttrList">
+		<xs:attribute name="PTZRamps" type="tt:IntList">
 			<xs:annotation>
 				<xs:documentation>
 					The list of acceleration ramps supported by the device. The
 					smallest acceleration value corresponds to the minimal index, the
-					highest acceleration corresponds to the maximum index.					
+					highest acceleration corresponds to the maximum index.
 				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
@@ -4921,6 +5340,14 @@ decoding .A decoder shall decode every data it receives (according to its capabi
 			<xs:any namespace="##targetNamespace" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:simpleType name="MoveAndTrackMethod">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PresetToken"/>
+			<xs:enumeration value="GeoLocation"/>
+			<xs:enumeration value="PTZVector"/>
+			<xs:enumeration value="ObjectID"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<!--===============================-->
 	<!--     End, PTZ Related Types    -->
 	<!--===============================-->
@@ -4988,6 +5415,14 @@ If set to 0.0, infinity will be used.</xs:documentation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="AUTO"/>
 			<xs:enumeration value="MANUAL"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--===============================-->
+	<xs:simpleType name="AFModes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OnceAfterMove">
+				<xs:annotation><xs:documentation>Focus of a moving camera is updated only once after stopping a pan, tilt or zoom movement.</xs:documentation></xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<!--===============================-->
@@ -5797,14 +6232,14 @@ If set to 0.0, infinity will be used.</xs:documentation>
 			<xs:element name="MinIris" type="xs:float" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
-				Minimum value of the iris range allowed to be used by the algorithm.
+				Minimum value of the iris range allowed to be used by the algorithm.  0dB maps to a fully opened iris and positive values map to higher attenuation.
 				</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="MaxIris" type="xs:float" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
-				Maximum value of the iris range allowed to be used by the algorithm.
+				Maximum value of the iris range allowed to be used by the algorithm. 0dB maps to a fully opened iris and positive values map to higher attenuation.
 				</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -5825,7 +6260,7 @@ If set to 0.0, infinity will be used.</xs:documentation>
 			<xs:element name="Iris" type="xs:float" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
-				The fixed attenuation of input light affected by the iris (dB). 0dB maps to a fully opened iris.
+				The fixed attenuation of input light affected by the iris (dB). 0dB maps to a fully opened iris and positive values map to higher attenuation.
 				</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -6302,6 +6737,11 @@ If set to 0.0, infinity will be used.</xs:documentation>
 			</xs:element>
 			<xs:element name="Extension" type="tt:FocusConfiguration20Extension" minOccurs="0"/>
 		</xs:sequence>
+		<xs:attribute name="AFMode" type="tt:StringAttrList">
+			<xs:annotation>
+				<xs:documentation>Zero or more modes as defined in enumeration tt:AFModes.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 		<xs:anyAttribute processContents="lax"/>
 	</xs:complexType>
 	<!--===============================-->
@@ -6377,6 +6817,11 @@ If set to 0.0, infinity will be used.</xs:documentation>
 	<xs:complexType name="FocusOptions20Extension">
 		<xs:sequence>
 			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first Vendor then ONVIF -->
+			<xs:element name="AFModes" type="tt:StringAttrList"  minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Supported options for auto focus. Options shall be chosen from tt:AFModes.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<!--===============================-->
@@ -6433,8 +6878,12 @@ If set to 0.0, infinity will be used.</xs:documentation>
 	<!--===============================-->
 	<!--  Event and Analytics Types    -->
 	<!--===============================-->
-	<xs:simpleType name="TopicNamespaceLocation">
-		<xs:restriction base="xs:anyURI"/>
+	<xs:simpleType name="ImageSendingType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Embedded"/>
+			<xs:enumeration value="LocalStorage"/>
+			<xs:enumeration value="RemoteStorage"/>
+		</xs:restriction>
 	</xs:simpleType>
 	<!--===============================-->
 	<xs:simpleType name="PropertyOperation">
@@ -6470,12 +6919,6 @@ If set to 0.0, infinity will be used.</xs:documentation>
 	</xs:complexType>
 	<!--===============================-->
 	<xs:complexType name="ItemList">
-		<xs:annotation>
-			<xs:documentation>
-			List of parameters according to the corresponding ItemListDescription.
-			Each item in the list shall have a unique name.
-		</xs:documentation>
-		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="SimpleItem" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
@@ -6619,16 +7062,34 @@ If set to 0.0, infinity will be used.</xs:documentation>
 		<xs:sequence>
 			<xs:element name="Point" type="tt:Vector" minOccurs="2" maxOccurs="unbounded"/>
 		</xs:sequence>
+<!--		<xs:attribute name='dummy'/> uncomment for compilation with Visual Studio --> 
 	</xs:complexType>
 	<xs:element name="Polyline" type="tt:Polyline"/>
 	<!--===============================-->
+	
 	<xs:simpleType name="Direction">
+		<xs:union memberTypes="tt:ExtendedDirection"/>
+	</xs:simpleType>
+	
+	<xs:simpleType name="ExtendedDirection">
+		<xs:annotation>
+			<xs:documentation>Entering represents object coming into the polygon boundary.</xs:documentation>
+			<xs:documentation>Exiting represents object going out of the polygon boundary.</xs:documentation>
+			<xs:documentation>Approaching represents distance of object to camera sensor decreasing over time.</xs:documentation>
+			<xs:documentation>Departing represents distance of object to camera sensor increasing over time.</xs:documentation>		
+		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Left"/>
 			<xs:enumeration value="Right"/>
 			<xs:enumeration value="Any"/>
+			<!-- Add new values -->
+			<xs:enumeration value="Entering"/>
+			<xs:enumeration value="Exiting"/>
+			<xs:enumeration value="Approaching"/>
+			<xs:enumeration value="Departing"/>
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<!--    Analytics Configuration    -->
 	<!--===============================-->
 	<xs:complexType name="AnalyticsEngineConfiguration">
@@ -6663,7 +7124,7 @@ If set to 0.0, infinity will be used.</xs:documentation>
 		<xs:sequence>
 			<xs:element name="Parameters" type="tt:ItemList">
 				<xs:annotation>
-					<xs:documentation>List of configuration parameters as defined in the correspding description.</xs:documentation>
+					<xs:documentation>List of configuration parameters as defined in the corresponding description.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -6706,11 +7167,7 @@ If set to 0.0, infinity will be used.</xs:documentation>
 								<xs:element name="ParentTopic" type="xs:string">
 									<xs:annotation>
 										<xs:documentation>
-											The ParentTopic labels the message (e.g. "nn:RuleEngine/LineCrossing"). The real message can extend the ParentTopic
-											by for example the name of the instaniated rule (e.g. "nn:RuleEngine/LineCrossing/corssMyFirstLine").
-											Even without knowing the complete topic name, the subscriber will be able to distiguish the
-											messages produced by different rule instances of the same type via the Source fields of the message.
-											There the name of the rule instance, which produced the message, must be listed.
+											The topic of the message. For historical reason the element is named ParentTopic, but the full topic is expected.
 										</xs:documentation>
 									</xs:annotation>
 								</xs:element>
@@ -6759,6 +7216,11 @@ If set to 0.0, infinity will be used.</xs:documentation>
 			</xs:element>
 			<xs:element name="Extension" type="tt:SupportedRulesExtension" minOccurs="0"/>
 		</xs:sequence>
+		<xs:attribute name="Limit" type="xs:int">
+			<xs:annotation>
+				<xs:documentation>Maximum number of concurrent instances.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 		<xs:anyAttribute processContents="lax"/>
 	</xs:complexType>
 	<!--===============================-->
@@ -6773,14 +7235,19 @@ If set to 0.0, infinity will be used.</xs:documentation>
 			<xs:element name="AnalyticsModuleContentSchemaLocation" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>It optionally contains a list of URLs that provide the location of schema files.
-        These schema files describe the types and elements used in the analytics module descriptions.
-        If the analytics module descriptions reference types or elements of the ONVIF schema file,
-        the ONVIF schema file MUST be explicitly listed.</xs:documentation>
+					These schema files describe the types and elements used in the analytics module descriptions.
+					Analytics module descriptions that reference types or elements imported from any ONVIF defined schema files
+					need not explicitly list those schema files.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AnalyticsModuleDescription" type="tt:ConfigDescription" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Extension" type="tt:SupportedAnalyticsModulesExtension" minOccurs="0"/>
 		</xs:sequence>
+		<xs:attribute name="Limit" type="xs:int">
+			<xs:annotation>
+				<xs:documentation>Maximum number of concurrent instances.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 		<xs:anyAttribute processContents="lax"/>
 	</xs:complexType>
 	<!--===============================-->
@@ -6788,48 +7255,6 @@ If set to 0.0, infinity will be used.</xs:documentation>
 		<xs:sequence>
 			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first Vendor then ONVIF -->
 		</xs:sequence>
-	</xs:complexType>
-	<!--===============================-->
-	<xs:complexType name="PolygonConfiguration">
-		<xs:sequence>
-			<xs:element name="Polygon" type="tt:Polygon">
-				<xs:annotation>
-					<xs:documentation>Contains Polygon configuration for rule parameters</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first Vendor then ONVIF -->
-		</xs:sequence>
-		<xs:anyAttribute processContents="lax"/>
-	</xs:complexType>
-	<!--===============================-->
-	<xs:complexType name="PolylineArray">
-		<xs:sequence>
-			<xs:element name="Segment" type="tt:Polyline" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Contains array of Polyline</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Extension" type="tt:PolylineArrayExtension" minOccurs="0"/>
-		</xs:sequence>
-		<xs:anyAttribute processContents="lax"/>
-	</xs:complexType>
-	<!--===============================-->
-	<xs:complexType name="PolylineArrayExtension">
-		<xs:sequence>
-			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first Vendor then ONVIF -->
-		</xs:sequence>
-	</xs:complexType>
-	<!--===============================-->
-	<xs:complexType name="PolylineArrayConfiguration">
-		<xs:sequence>
-			<xs:element name="PolylineArray" type="tt:PolylineArray">
-				<xs:annotation>
-					<xs:documentation>Contains PolylineArray configuration data</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first Vendor then ONVIF -->
-		</xs:sequence>
-		<xs:anyAttribute processContents="lax"/>
 	</xs:complexType>
 	<!--===============================-->
 	<xs:complexType name="MotionExpression">
@@ -7548,6 +7973,169 @@ and sample rate. </xs:documentation>
 		<xs:anyAttribute processContents="lax"/>
 	</xs:complexType>
 	<!--===============================-->
+	<xs:simpleType name="TargetFormat">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MP4">
+				<xs:annotation>
+					<xs:documentation>
+						MP4 files with all tracks in a single file.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CMAF">
+				<xs:annotation>
+					<xs:documentation>
+						CMAF compliant MP4 files with 1 track per file.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--===============================-->
+	<xs:simpleType name="EncryptionMode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CENC">
+				<xs:annotation>
+					<xs:documentation>
+						AES-CTR mode full sample and video NAL Subsample encryption, defined in ISO/IEC 23001-7.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CBCS">
+				<xs:annotation>
+					<xs:documentation>
+						AES-CBC mode partial video NAL pattern encryption, defined in ISO/IEC 23001-7.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="AsymmetricEncryption">
+		<xs:sequence>
+			<xs:element name="CertificateID" type="xs:string" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of certificates used to encrypt the symmetric key for the PSSH box.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="KeyRotationDuration" type="xs:duration" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+					Frequency at which the device shall generate a new key to encrypt a new segment. 
+					If not specified, key rotation is disabled. 
+					KeyRotationDuration must be a positive duration value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first ONVIF then Vendor -->
+		</xs:sequence>
+	</xs:complexType>
+	<!--===============================-->
+	<xs:complexType name="RecordingEncryption">
+		<xs:sequence>
+			<xs:element name="KID" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Key ID of the associated key for encryption. This parameter is ignored when AsymmetricEncryption is configured.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Key" type="xs:hexBinary" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Key for encrypting content. This parameter is ignored when AsymmetricEncryption is configured.
+						The device shall not include this parameter when reading.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Track" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Optional list of track tokens to be encrypted.
+						If no track tokens are specified, all tracks are encrypted and no other encryption configurations shall exist for the recording.
+						Each track shall only be contained in one encryption configuration.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AsymmetricEncryption" type="tt:AsymmetricEncryption" minOccurs="0" maxOccurs="1" />
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first ONVIF then Vendor -->
+		</xs:sequence>
+		<xs:attribute name="Mode" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					Mode of encryption.
+					See tt:EncryptionMode for a list of definitions and capability trc:SupportedEncryptionModes for the supported encryption modes.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:anyAttribute processContents="lax"/>
+	</xs:complexType>
+	<!--===============================-->
+	<xs:complexType name="RecordingTargetConfiguration">
+		<xs:sequence>
+			<xs:element name="Storage" type="tt:ReferenceToken">
+				<xs:annotation>
+					<xs:documentation>Token of a storage configuration.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Format" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+						Format of the recording.
+						See tt:TargetFormat for a list of definitions and capability trc:SupportedTargetFormats for the supported formats.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Prefix" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Path prefix to be inserted in the object key.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Postfix" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Path postfix to be inserted in the object key.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SpanDuration" type="xs:duration" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Maximum duration of a span.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SegmentDuration" type="xs:duration">
+				<xs:annotation>
+					<xs:documentation>Maximum duration of a segment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Encryption" type="tt:RecordingEncryption" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Optional encryption configuration.
+						See capability trc:EncryptionEntryLimit for the number of supported entries.
+						By specifying multiple encryption entries per recording, different tracks can be encrypted with different configurations.
+						Each track shall only be contained in one encryption configuration.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SegmentDurationOverride" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Value of the active OverrideSegmentDuration parameters if one exists. (readonly)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Duration" type="xs:duration" minOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Current value of the segment duration.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Expiration" type="xs:duration" minOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Time remaining until the override expires.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first ONVIF then Vendor -->
+		</xs:sequence>
+		<xs:anyAttribute processContents="lax"/>
+	</xs:complexType>
+	<!--===============================-->
 	<xs:simpleType name="RecordingStatus">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Initiated"/>
@@ -7691,7 +8279,7 @@ and sample rate. </xs:documentation>
 			</xs:element>
 			<xs:element name="Encoding" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>Video encoding of the track. Use values from tt:VideoEncoding for JPEG, MPEG4 and H264. Otherwise use type definitions as defined by <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">IANA</a>.</xs:documentation>
+					<xs:documentation>Video encoding of the track.  Use value from tt:VideoEncoding for MPEG4. Otherwise use values from tt:VideoEncodingMimeNames and <a href="https://www.iana.org/assignments/media-types/media-types.xhtml#video"> IANA Media Types</a>.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Framerate" type="xs:float">
@@ -7713,7 +8301,7 @@ and sample rate. </xs:documentation>
 			</xs:element>
 			<xs:element name="Encoding" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>Audio encoding of the track. Use values from tt:AudioEncoding for G711, G726, AAC. Otherwise use type definitions as defined by <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">IANA</a>.</xs:documentation>
+					<xs:documentation>Audio encoding of the track.  Use values from tt:AudioEncoding for G711 and AAC. Otherwise use values from tt:AudioEncodingMimeNames and <a href="https://www.iana.org/assignments/media-types/media-types.xhtml#audio"> IANA Media Types</a>.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Samplerate" type="xs:int">
@@ -7780,6 +8368,11 @@ and sample rate. </xs:documentation>
 				the device shall not limit the retention time of stored data, except by resource constraints.
 				Whatever the value of MaximumRetentionTime, the device may automatically delete
 				recordings to free up storage space for new recordings.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Target" type="tt:RecordingTargetConfiguration" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Optional external storage target configuration.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first Vendor then ONVIF -->
@@ -7884,6 +8477,44 @@ and sample rate. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Extension" type="tt:RecordingJobConfigurationExtension" minOccurs="0"/>
+			<xs:element name="EventFilter" type="tt:RecordingEventFilter" minOccurs="0">
+				<xs:annotation><xs:documentation>Optional filter defining on which event condition a recording job gets active.</xs:documentation></xs:annotation>
+			</xs:element>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- reserved for ONVIF -->
+		</xs:sequence>
+		<xs:attribute name="ScheduleToken">
+			<xs:annotation>
+				<xs:documentation>This attribute adds an additional requirement for activating the recording job. 
+				If this optional field is provided the job shall only record if the schedule exists and is active. 
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:anyAttribute processContents="lax"/>
+	</xs:complexType>
+
+	<xs:complexType name="RecordingEventFilter">
+		<xs:sequence>
+			<xs:element name="Filter" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Topic" type="xs:string">
+							<xs:annotation><xs:documentation>Topic filter as defined in section 9.6.3 of the ONVIF Core Specification.</xs:documentation></xs:annotation>
+						</xs:element>
+						<xs:element name="Source" type="xs:string" minOccurs="0">
+							<xs:annotation><xs:documentation>Optional message source content filter as defined in section 9.4.4 of the ONVIF Core Specification.</xs:documentation></xs:annotation>
+						</xs:element>
+						<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first ONVIF then vendor -->
+					</xs:sequence>
+					<xs:anyAttribute processContents="lax"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Before" type="xs:duration" minOccurs="0">
+				<xs:annotation><xs:documentation>Optional timespan to record before the actual event condition became active.</xs:documentation></xs:annotation>
+			</xs:element>
+			<xs:element name="After" type="xs:duration" minOccurs="0">
+				<xs:annotation><xs:documentation>Optional timespan to record after the actual event condition becomes inactive.</xs:documentation></xs:annotation>
+			</xs:element>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first ONVIF then vendor -->
 		</xs:sequence>
 		<xs:anyAttribute processContents="lax"/>
 	</xs:complexType>
@@ -7894,7 +8525,7 @@ and sample rate. </xs:documentation>
 	<!--===============================-->
 	<xs:complexType name="RecordingJobConfigurationExtension">
 		<xs:sequence>
-			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first Vendor then ONVIF -->
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- Vendor only -->
 		</xs:sequence>
 	</xs:complexType>
 	<!--===============================-->
@@ -8284,14 +8915,31 @@ and sample rate. </xs:documentation>
         <!--=========================================-->
 	<!--  Begin, Audio event types               -->
 	<!--=========================================-->
+	<!-- Old audio classification types, non-extensible. -->
 	<xs:simpleType name="AudioClassType">
 		<xs:annotation>
 		<xs:documentation>
 		  AudioClassType acceptable values are;
-		   gun_shot, scream, glass_breaking, tire_screech   
+		   gun_shot, scream, glass_breaking, tire_screech
 		</xs:documentation>
 		</xs:annotation>
-	<xs:restriction base="xs:string"/>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="gun_shot"/>
+			<xs:enumeration value="scream"/>
+			<xs:enumeration value="glass_breaking"/>
+			<xs:enumeration value="tire_screech"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- New audio classification types, extensible, for documentation purpose only. -->
+	<xs:simpleType name="AudioClassification">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GunShot"/>
+			<xs:enumeration value="Scream"/>
+			<xs:enumeration value="GlassBreaking"/>
+			<xs:enumeration value="TireScreech"/>
+			<xs:enumeration value="Alarm"/>
+		</xs:restriction>
 	</xs:simpleType>
 
 	<xs:complexType name="AudioClassCandidate">
@@ -8305,7 +8953,7 @@ and sample rate. </xs:documentation>
 			<xs:annotation>
 			<xs:documentation>A likelihood/probability that the corresponding audio event belongs to this class. The sum of the likelihoods shall NOT exceed 1</xs:documentation>
 			</xs:annotation>
-		</xs:element>  
+		</xs:element>
 		<xs:any namespace="##targetNamespace" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
 	</xs:sequence>
 	<xs:anyAttribute processContents="lax"/>
@@ -8515,17 +9163,21 @@ and sample rate. </xs:documentation>
 			<xs:element name="X" type="tt:FloatRange"/>
 			<xs:element name="Y" type="tt:FloatRange"/>
 			<xs:element name="Z" type="tt:FloatRange"/>
-			<xs:element name="Colorspace" type="xs:anyURI"/>
+			<xs:element name="Colorspace" type="xs:anyURI">
+				<xs:annotation>
+					<xs:documentation>
+						Acceptable values are the same as in tt:Color.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 		<xs:anyAttribute processContents="lax"/>
 	</xs:complexType>
 	<!--===============================-->
 	<xs:complexType name="ColorOptions">
 		<xs:annotation>
-			<xs:documentation>Describe the option of the color supported. Either list each color or define the range of color value. The following values are acceptable for Colourspace attribute.<ul><li>http://www.onvif.org/ver10/colorspace/YCbCr - YCbCr colourspace</li>
-				<li>http://www.onvif.org/ver10/colorspace/CIELUV - CIE LUV</li>
-				<li>http://www.onvif.org/ver10/colorspace/CIELAB - CIE 1976 (L*a*b*)</li>
-				<li>http://www.onvif.org/ver10/colorspace/HSV - HSV colourspace</li></ul>
+			<xs:documentation>
+				Describe the colors supported. Either list each color or define the range of color values.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:choice>
@@ -8536,7 +9188,7 @@ and sample rate. </xs:documentation>
 			</xs:element>
 			<xs:element name="ColorspaceRange" type="tt:ColorspaceRange" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Define the rang of color supported.</xs:documentation>
+					<xs:documentation>Define the range of color supported.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
@@ -8754,7 +9406,7 @@ and sample rate. </xs:documentation>
 	<!--=========================================-->
 
 	<!--=========================================-->
-	<!--  Begin, StorageConfiguration            -->
+	<!--  Begin, ExportRecordedDataState         -->
 	<!--=========================================-->
 	<xs:complexType name="FileProgress">
     	<xs:sequence>
@@ -8814,6 +9466,32 @@ and sample rate. </xs:documentation>
 		<xs:anyAttribute processContents="lax"/>
 	</xs:complexType>
 	<!--=========================================-->
-	<!--  End, StorageConfiguration              -->
+	<!--  End, ExportRecordedDataState           -->
 	<!--=========================================-->
+	
+<xs:element name="PolygonOptions" type="tt:PolygonOptions"/>
+ 
+<xs:complexType name="PolygonOptions">
+	<xs:sequence>
+		<xs:element name="RectangleOnly" type="xs:boolean" minOccurs="0">
+			<xs:annotation>
+				<xs:documentation>
+True if the device supports defining a region only using Rectangle.
+The rectangle points are still passed using a Polygon element if the device does not support polygon regions. In this case, the points provided in the Polygon element shall represent a rectangle.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+		<xs:element name="VertexLimits" type="tt:IntRange" minOccurs="0">
+			<xs:annotation>
+				<xs:documentation>
+Provides the minimum and maximum number of points that can be defined in the Polygon.
+If RectangleOnly is not set to true, this parameter is required.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+		<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>   <!-- first ONVIF then Vendor -->
+	</xs:sequence>
+	<xs:anyAttribute processContents="lax"/>
+</xs:complexType>
+
 </xs:schema>

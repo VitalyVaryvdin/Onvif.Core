@@ -7,6 +7,7 @@ using Onvif.Core.Client.Common;
 using Onvif.Core.Client.Device;
 using Onvif.Core.Client.Imaging;
 using Onvif.Core.Client.Media;
+using Onvif.Core.Client.Media2;
 using Onvif.Core.Client.Ptz;
 using Onvif.Core.Client.Security;
 
@@ -73,7 +74,25 @@ namespace Onvif.Core.Client
             return media;
         }
 
-        public static async Task<PTZClient> CreatePTZClientAsync(string host, string username, string password)
+        public static async Task<Media2Client> CreateMedia2ClientAsync(string host, string username, string password)
+        {
+            var binding = CreateBinding();
+            var device = await CreateDeviceClientAsync(host, username, password).ConfigureAwait(false);
+            var deviceUri = new Uri($"http://{host}");
+            var media2Uri = new Uri(deviceUri, "/onvif/Media2");
+            var media2 = new Media2Client(binding, new EndpointAddress(media2Uri));
+
+            var time_shift = await GetDeviceTimeShift(device).ConfigureAwait(false);
+            media2.ChannelFactory.Endpoint.EndpointBehaviors.Clear();
+            media2.ChannelFactory.Endpoint.EndpointBehaviors.Add(new SoapSecurityHeaderBehavior(username, password, time_shift));
+
+            // Connectivity Test
+            await media2.OpenAsync().ConfigureAwait(false);
+
+            return media2;
+        }
+
+        public static async Task<PTZClient> CreatePTZClientAsync(string host, string username, string password, Action<PTZClient>? configure = null)
         {
             var binding = CreateBinding();
             var device = await CreateDeviceClientAsync(host, username, password).ConfigureAwait(false);
@@ -83,6 +102,8 @@ namespace Onvif.Core.Client
             var time_shift = await GetDeviceTimeShift(device).ConfigureAwait(false);
             ptz.ChannelFactory.Endpoint.EndpointBehaviors.Clear();
             ptz.ChannelFactory.Endpoint.EndpointBehaviors.Add(new SoapSecurityHeaderBehavior(username, password, time_shift));
+
+            configure?.Invoke(ptz);
 
             // Connectivity Test
             await ptz.OpenAsync().ConfigureAwait(false);

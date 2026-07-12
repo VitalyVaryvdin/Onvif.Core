@@ -19,19 +19,19 @@ namespace Onvif.Core.Discovery.Common
         /// <remarks>
         /// This ctor. uses port 80 by default.
         /// </remarks>
-        public UdpClientWrapper() : this(IPAddress.Any, 80)
+        public UdpClientWrapper() : this(System.Net.IPAddress.Any, 80)
         {
         }
 
-        public UdpClientWrapper(int port) : this(IPAddress.Any, port)
+        public UdpClientWrapper(int port) : this(System.Net.IPAddress.Any, port)
         {
         }
 
-        public UdpClientWrapper(string ipAddress, int port) : this(IPAddress.Parse(ipAddress), port)
+        public UdpClientWrapper(string ipAddress, int port) : this(System.Net.IPAddress.Parse(ipAddress), port)
         {
         }
 
-        public UdpClientWrapper(IPAddress ipAddress, int port) : this(new IPEndPoint(ipAddress, port))
+        public UdpClientWrapper(System.Net.IPAddress ipAddress, int port) : this(new IPEndPoint(ipAddress, port))
         {
         }
 
@@ -42,7 +42,7 @@ namespace Onvif.Core.Discovery.Common
             foreach (IPEndPoint item in ipEndPoints)
             {
                 if (item.AddressFamily == localEndPoint.AddressFamily
-                    && (localEndPoint.Address.Equals(IPAddress.Any) || localEndPoint.Address.Equals(IPAddress.Any) || item.Address.Equals(localEndPoint.Address))
+                    && (localEndPoint.Address.Equals(System.Net.IPAddress.Any) || localEndPoint.Address.Equals(System.Net.IPAddress.Any) || item.Address.Equals(localEndPoint.Address))
                     && item.Port == localEndPoint.Port)
                 {
                     throw new ArgumentException($"Port {localEndPoint.Port}");

@@ -85,7 +85,7 @@ namespace Onvif.Core.Discovery
         async Task SendProbe(IUdpClient client)
         {
             var message = WSProbeMessageBuilder.NewProbeMessage();
-            var multicastEndpoint = new IPEndPoint(IPAddress.Parse(Constants.WS_MULTICAST_ADDRESS), Constants.WS_MULTICAST_PORT);
+            var multicastEndpoint = new IPEndPoint(System.Net.IPAddress.Parse(Constants.WS_MULTICAST_ADDRESS), Constants.WS_MULTICAST_PORT);
             await client.SendAsync(message, message.Length, multicastEndpoint).ConfigureAwait(false);
         }
 
