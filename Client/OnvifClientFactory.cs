@@ -32,6 +32,11 @@ namespace Onvif.Core.Client
             binding.Elements.Add(textBindingElement);
             binding.Elements.Add(httpBindingElement);
 
+            binding.OpenTimeout = TimeSpan.FromSeconds(10);
+            binding.CloseTimeout = TimeSpan.FromSeconds(10);
+            binding.SendTimeout = TimeSpan.FromSeconds(10);
+            binding.ReceiveTimeout = TimeSpan.FromSeconds(10);
+
             return binding;
         }
 
